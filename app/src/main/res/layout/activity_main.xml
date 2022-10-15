@@ -4,15 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="273dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="350dp"
+        android:background="@color/transparent"
+        android:textColorHint="@color/hints"
+        app:boxBackgroundColor="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
+        app:startIconTint="@color/primary"
+
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputUsuari"
+            style="?attr/textInputFilledStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+
+            android:hint="Usuari/Mail"
+
+            android:inputType="text"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="0dp"
+
+
+            tools:layout_editor_absoluteY="33dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInput"
+
+        android:layout_width="273dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:hint="Contrasenya"
+        android:textColorHint="@color/hints"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:startIconDrawable="@drawable/ic_baseline_password_24"
+        app:startIconTint="@color/primary"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:inputType="textPassword"
+
+            android:textColor="@color/primary">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="248dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_light" />
+
+    <TextView
+        android:id="@+id/tvIniciSessio1"
+        android:layout_width="303dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif"
+        android:text="Benvingut/da!"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/tvIniciSessio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="130dp"
+        android:text="Inicia sessió per continuar"
+        android:textColor="@color/primary"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIniciSessio1"
+
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonIniciSesio"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="117dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="400dp"
+        android:text="ENTRAR"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonRegistre"
+        app:layout_constraintStart_toStartOf="@+id/buttonRegistre"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57"
+        app:strokeColor="@color/primary" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonRegistre"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Registre't"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIniciSesio" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonResetPassword"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="252dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="75dp"
+        android:text="Has oblidat la contraseña?"
+        android:textAllCaps="false"
+        android:textColor="@color/hints"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInput"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
