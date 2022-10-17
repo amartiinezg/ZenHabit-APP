@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">ZenHabit</string>
+    <string name="Benvingut">¡Benvingut!</string>
+    <string name="introduction">ZenHabit és una aplicació que es va fer amb el propòsit de gestionar el temps de manera eficient per aconseguir objectius personals.</string>
 
 </resources>

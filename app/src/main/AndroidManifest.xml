@@ -13,6 +13,13 @@
         android:theme="@style/Theme.ZenHabit"
         tools:targetApi="31">
         <activity
+            android:name=".IntroductionActivity_1"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
@@ -24,6 +31,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
