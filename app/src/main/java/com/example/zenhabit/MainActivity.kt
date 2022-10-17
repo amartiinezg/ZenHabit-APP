@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
 
         var buttonRegister_LoginScreen = findViewById<Button>(R.id.btRegister_LoginScreen)
-        var btForgotPassword_LoginScreen = findViewById<Button>(R.id.buttonResetPassword)a
+        var btForgotPassword_LoginScreen = findViewById<Button>(R.id.buttonResetPassword)
 
         buttonRegister_LoginScreen.setOnClickListener{
             val intent = Intent(this, RegistreActivity::class.java)
