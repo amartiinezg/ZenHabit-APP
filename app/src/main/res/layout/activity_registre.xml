@@ -24,7 +24,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputEmail"
+            android:id="@+id/inputEmail_RegisterScreen"
             style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputUsername"
+            android:id="@+id/inputUsername_RegisterScreen"
             style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
         app:startIconTint="@color/primary">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputPassword"
+            android:id="@+id/inputPassword_RegisterScreen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
@@ -128,13 +128,14 @@
         android:layout_height="53dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
         android:fontFamily="sans-serif"
         android:text="Hola!"
         android:textColor="@color/white"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
@@ -154,7 +155,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvIniciSessio1" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btCancel1"
+        android:id="@+id/btCancel_RegisterScreen"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="199dp"
         android:layout_height="61dp"
@@ -177,9 +178,8 @@
         android:layout_height="60dp"
         android:text="Registre't"
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/btCancel1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btCancel_RegisterScreen"
+        app:layout_constraintStart_toStartOf="@+id/btCancel_RegisterScreen"
         app:strokeColor="@color/primary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
