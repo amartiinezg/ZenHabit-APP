@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Home"
+    android:background="@color/background">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btDiari"
+        android:layout_width="170dp"
+
+        android:layout_height="168dp"
+        android:drawableBottom="@drawable/diari"
+        android:fontFamily="sans-serif"
+        android:text="Diari"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="21dp"
+
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btJardi"
+        android:layout_width="163dp"
+        android:layout_height="167dp"
+
+        android:drawableBottom="@drawable/arbol"
+
+        android:fontFamily="sans-serif"
+        android:text="Jardí"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="21dp"
+        android:textStyle="bold"
+
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btTasques"
+        android:layout_width="170dp"
+
+        android:layout_height="168dp"
+        android:drawableBottom="@drawable/pesas"
+        android:fontFamily="sans-serif"
+        android:text="Tasques"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="21dp"
+
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.547" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="192dp"
+        android:drawableStart="@drawable/ic_baseline_notifications_24"
+        android:text="Tens (x) activitats pendents"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
