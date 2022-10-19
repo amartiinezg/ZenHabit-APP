@@ -2,5 +2,12 @@
     <string name="app_name">ZenHabit</string>
     <string name="Benvingut">¡Benvingut!</string>
     <string name="introduction">ZenHabit és una aplicació que es va fer amb el propòsit de gestionar el temps de manera eficient per aconseguir objectius personals.</string>
-
+    <string name="title_introduction_2">¡Reptes diaris segons el teu propòsit!</string>
+    <string name="introduction_2">T&quot;acompanyem perquè compleixis els teus propòsits a través del nostre sistema de reptes</string>
+    <string name="seguent">Següent</string>
+    <string name="description_task_optional">Descripció (opcional)</string>
+    <string name="category_labelName">Categoria</string>
+    <string name="task_label">Tasca</string>
+    <string name="habit_label">Hàbit</string>
+    <string name="tasques">Tasques</string>
 </resources>
