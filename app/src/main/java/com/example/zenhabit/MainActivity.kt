@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         var buttonRegister_LoginScreen = findViewById<Button>(R.id.btRegister_LoginScreen)
         var btForgotPassword_LoginScreen = findViewById<Button>(R.id.buttonResetPassword)
+        var bt_login = findViewById<Button>(R.id.btLogin_LoginScreen)
 
         buttonRegister_LoginScreen.setOnClickListener{
             val intent = Intent(this, RegistreActivity::class.java)
@@ -26,6 +27,13 @@ class MainActivity : AppCompatActivity() {
         }
         btForgotPassword_LoginScreen.setOnClickListener{
             val intent = Intent(this, PasswordCodeRequest::class.java)
+            startActivity(intent)
+
+            Animatoo.animateSlideLeft(this)
+        }
+
+        bt_login.setOnClickListener{
+            val intent = Intent(this, Home::class.java)
             startActivity(intent)
 
             Animatoo.animateSlideLeft(this)
