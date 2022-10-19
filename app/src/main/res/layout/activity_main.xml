@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usuariLayout"
+        android:id="@+id/newUsernameLayout"
         android:layout_width="273dp"
         android:layout_height="60dp"
         android:layout_marginTop="50dp"
@@ -24,7 +24,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputUsername_LoginScreen"
+            android:id="@+id/input_newUsernameSettings"
             style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         app:endIconTint="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuariLayout"
+        app:layout_constraintTop_toBottomOf="@+id/newUsernameLayout"
         app:startIconDrawable="@drawable/ic_baseline_password_24"
         app:startIconTint="@color/primary"
 

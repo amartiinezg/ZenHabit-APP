@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuariLayout"
+        app:layout_constraintTop_toBottomOf="@+id/newUsernameLayout"
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
         app:startIconTint="@color/primary">
 
@@ -44,7 +44,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usuariLayout"
+        android:id="@+id/newUsernameLayout"
         android:layout_width="273dp"
         android:layout_height="60dp"
         android:layout_marginTop="350dp"

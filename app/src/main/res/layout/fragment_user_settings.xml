@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".UserSettings">
+
+
+    <TextView
+        android:id="@+id/tvSettingsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Configuracions"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvChangePasswordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Configura el teu perfil"
+        android:textColor="@color/primary"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSettingsLabel" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btLogin_LoginScreen"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="199dp"
+        android:layout_height="60dp"
+
+        android:layout_marginBottom="56dp"
+        android:text="Guardar"
+        android:textColor="@color/primary"
+        android:textSize="18dp"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/primary" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/newUsernameLayout"
+        android:layout_width="350dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/transparent"
+
+        android:textColorHint="@color/hints"
+        app:boxBackgroundColor="@color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChangePasswordLabel"
+        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
+        app:startIconTint="@color/primary">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_newUsername"
+            style="?attr/textInputFilledStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+
+            android:hint="Canviar nom d'usuari"
+
+            android:inputType="text"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="0dp"
+
+
+            tools:layout_editor_absoluteY="33dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/changePasswordLayout"
+
+        android:layout_width="350dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:hint="Canviar contrasenya"
+        android:textColorHint="@color/hints"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newUsernameLayout"
+        app:startIconDrawable="@drawable/ic_baseline_password_24"
+
+        app:startIconTint="@color/primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputChangePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:inputType="textPassword"
+
+            android:textColor="@color/primary">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/changeEmailLayout"
+        android:layout_width="350dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="372dp"
+        android:background="@color/transparent"
+        android:textColorHint="@color/hints"
+        app:boxBackgroundColor="@color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
+
+        app:startIconTint="@color/primary">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputChangeEmail"
+            style="?attr/textInputFilledStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+
+            android:hint="Canviar email"
+
+            android:inputType="textEmailAddress"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="0dp"
+
+
+            tools:layout_editor_absoluteY="33dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
