@@ -198,6 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@drawable/rectangle_primarycolor_disabled"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingLeft="25dp"
                 android:paddingTop="10dp"
@@ -205,10 +206,10 @@
 
                 <ImageView
                     android:id="@+id/img_tree_Earned"
-                    android:layout_width="20dp"
+                    android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_marginRight="10dp"
-                    android:layout_weight="1"
+                    android:layout_weight="0"
                     android:background="@drawable/tree_1"
                     app:srcCompat="@drawable/tree_1" />
 
@@ -238,10 +239,11 @@
 
                 <ImageView
                     android:id="@+id/img_playbutton"
-                    android:layout_width="49dp"
-                    android:layout_height="45dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/play_buttongreen" />
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/padlock_opened" />
 
             </LinearLayout>
         </ScrollView>
