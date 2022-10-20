@@ -196,6 +196,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/boto_per_editar_tasca"
                 android:src="@drawable/ic_drawable_plus"
+                app:backgroundTint="@color/primary"
                 app:fabSize="normal" />
 
         </LinearLayout>
