@@ -15,4 +15,6 @@
     <color name="shadow">#7F000000</color>
     <color name="red">#FF0000</color>
     <color name="green">#3ED598</color>
+    <color name="backgrounddiary">#30434E</color>
+    <color name="ringChartRed">#DF4F30</color>
 </resources>
