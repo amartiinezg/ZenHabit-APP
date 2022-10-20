@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TasksAndHabits_Fragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="354dp"
+            android:layout_height="271dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/rectangle_primary"
+            android:orientation="vertical"
+            android:paddingLeft="20sp"
+            android:paddingTop="20sp"
+            android:paddingRight="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/lbl_ReptesDiaris"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="20sp"
+                android:text="Reptes diaris"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_marginBottom="3sp"
+                android:background="@drawable/rectangle_backgroundcolor_rounded"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="30sp">
+
+                <TextView
+                    android:id="@+id/lbl_Task1"
+                    android:layout_width="71dp"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="0"
+                    android:gravity="center|left"
+                    android:text="Llegir 10 minuts"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/square_red1"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginRight="15sp"
+                    android:layout_weight="0"
+                    android:src="@drawable/rectangle_red" />
+
+                <TextView
+                    android:id="@+id/lbl_lookEarn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Veure recompensa"
+                    android:textColor="@color/white" />
+
+                <CheckBox
+                    android:id="@+id/chckBox_status1"
+                    android:layout_width="64dp"
+                    android:layout_height="59dp"
+                    android:layout_weight="0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_marginBottom="3sp"
+                android:background="@drawable/rectangle_backgroundcolor_rounded"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="30sp">
+
+                <TextView
+                    android:id="@+id/lbl_Task2"
+                    android:layout_width="71dp"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="Fes'te un selfie"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/square_red2"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginRight="15sp"
+                    android:layout_weight="1"
+                    android:src="@drawable/rectangle_red" />
+
+                <TextView
+                    android:id="@+id/lbl_lookEarn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Veure recompensa"
+                    android:textColor="@color/white" />
+
+                <CheckBox
+                    android:id="@+id/chckBox_status2"
+                    android:layout_width="64dp"
+                    android:layout_height="59dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_marginBottom="3sp"
+                android:background="@drawable/rectangle_backgroundcolor_rounded"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="30sp">
+
+                <TextView
+                    android:id="@+id/lbl_task3"
+                    android:layout_width="71dp"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="10 flexions"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/square_red3"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginRight="15sp"
+                    android:layout_weight="1"
+                    android:src="@drawable/rectangle_red" />
+
+                <TextView
+                    android:id="@+id/lbl_lookEarn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Veure recompensa"
+                    android:textColor="@color/white" />
+
+                <CheckBox
+                    android:id="@+id/chckBox_status3"
+                    android:layout_width="64dp"
+                    android:layout_height="59dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            android:paddingLeft="30sp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/lbl_TaskTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/tasques"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Space
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatButton_addTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/boto_per_editar_tasca"
+                android:src="@drawable/ic_drawable_plus"
+                app:fabSize="normal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="354dp"
+            android:layout_height="133dp"
+            android:layout_marginStart="28dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="10sp"
+                android:paddingRight="20sp">
+
+                <TextView
+                    android:id="@+id/lbl_sortBy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawableLeft="@drawable/circle"
+                    android:text="Ordenar per:"
+                    android:textColor="@color/white" />
+
+                <Space
+                    android:layout_width="114dp"
+                    android:layout_height="17dp"
+                    android:layout_weight="0" />
+
+                <ImageView
+                    android:id="@+id/square_red4"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="0"
+                    android:src="@drawable/rectangle_red" />
+
+                <TextView
+                    android:id="@+id/lbl_Challenge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Reptes"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="27dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0" />
+
+                <ImageView
+                    android:id="@+id/square_yellow1"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginRight="5sp"
+                    android:layout_weight="0"
+                    android:src="@drawable/rectangle_red"
+                    app:srcCompat="@drawable/rectangle_yellow" />
+
+                <TextView
+                    android:id="@+id/lbl_Habit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Hàbits"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="133dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3sp"
+                    android:background="@drawable/rectangle_backgroundcolor_rounded"
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20sp">
+
+                    <TextView
+                        android:id="@+id/lbl_Task4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginRight="10sp"
+                        android:layout_weight="0"
+                        android:gravity="center|left"
+                        android:text="Menjar Avena"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/square_red5"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginRight="15sp"
+                        android:layout_weight="0"
+                        android:src="@drawable/rectangle_red" />
+
+                    <Space
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0" />
+
+                    <TextView
+                        android:id="@+id/lbl_time_Task4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="10:00"
+                        android:textColor="@color/white" />
+
+                    <Space
+                        android:layout_width="18dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_EditTask"
+                        android:layout_width="48dp"
+
+                        android:layout_height="48dp"
+                        android:contentDescription="@string/boto_per_editar_tasca"
+                        app:icon="@android:drawable/ic_menu_edit"
+                        app:iconGravity="textEnd"
+                        app:iconPadding="0sp"
+                        app:iconSize="20sp" />
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="354dp"
+            android:layout_height="132dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+            <ProgressBar
+                android:id="@+id/progressBar_progresTasques"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="102dp"
+                android:layout_height="80dp"
+                android:layout_weight="0" />
+
+            <Space
+                android:layout_width="84dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0" />
+
+            <LinearLayout
+                android:layout_width="166dp"
+                android:layout_height="98dp"
+                android:layout_weight="0"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lbl_seguiment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    tools:text="Seguiment" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/squareYellow_complerts"
+                        android:layout_width="25dp"
+                        android:layout_height="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0"
+                        android:src="@drawable/rectangle_yellow" />
+
+                    <TextView
+                        android:id="@+id/lbl_complerts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Complerts"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/squareRed_Pendents"
+                        android:layout_width="25dp"
+                        android:layout_height="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0"
+                        android:src="@drawable/rectangle_yellow"
+                        app:srcCompat="@drawable/rectangle_red" />
+
+                    <TextView
+                        android:id="@+id/lbl_pendents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pendents"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
