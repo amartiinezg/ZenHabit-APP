@@ -39,11 +39,13 @@
         android:id="@+id/bt_Next_Introduction"
         style="@style/btn_VerdeOutlined"
         android:text="@string/seguent"
+        android:layout_width="199dp"
+        android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/introduction_2"
         app:strokeColor="@color/primary"
-        app:cornerRadius="17dp"
+        app:cornerRadius="16dp"
         />
 
     <TextView

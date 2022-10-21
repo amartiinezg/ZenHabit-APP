@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="errorNullUsername">L\'usuari no pot estar buit</string>
+    <string name="errorNullPassword">La contraseña no pot estar buida</string>
+
+</resources>

@@ -7,16 +7,19 @@
     android:background="@color/background"
     tools:context=".MainActivity">
 
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/newUsernameLayout"
-        android:layout_width="273dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="50dp"
+        android:id="@+id/usernameLayout"
+        android:layout_width="272dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="28dp"
         android:background="@color/transparent"
         android:textColorHint="@color/hints"
         app:boxBackgroundColor="@color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
 
+        app:helperTextEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvIniciSessio2"
         app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
@@ -43,24 +46,42 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonResetPassword"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="252dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="75dp"
+        android:text="Has oblidat la contraseña?"
+        android:textAllCaps="false"
+        android:textColor="@color/hints"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btLogin_LoginScreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
-
-        android:layout_width="273dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="272dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="8dp"
         android:hint="Contrasenya"
         android:textColorHint="@color/hints"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newUsernameLayout"
-        app:startIconDrawable="@drawable/ic_baseline_password_24"
-        app:startIconTint="@color/primary"
 
-        >
+        app:helperTextEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameLayout"
+        app:startIconDrawable="@drawable/ic_baseline_password_24"
+
+        app:startIconTint="@color/primary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputPassword_LoginScreen"
@@ -151,21 +172,12 @@
         app:cornerRadius="12dp"
         />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonResetPassword"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="252dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="75dp"
-        android:text="Has oblidat la contraseña?"
-        android:textAllCaps="false"
-        android:textColor="@color/hints"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btLogin_LoginScreen"
+    <TextView
+        android:id="@+id/tvSnackBar"
+        android:layout_width="117dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

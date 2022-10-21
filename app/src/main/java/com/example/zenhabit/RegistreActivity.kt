@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
-import com.example.zenhabit.databinding.ActivityMainBinding
 import com.example.zenhabit.databinding.ActivityRegistreBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -26,8 +24,8 @@ class RegistreActivity : AppCompatActivity() {
         bin =   ActivityRegistreBinding.inflate(layoutInflater)
         setContentView(bin.root)
 
-        var btCancel = bin.btCancelRegisterScreen
-        var btRegister = bin.btRegister
+        val btCancel = bin.btCancelRegisterScreen
+        val btRegister = bin.btRegister
 
 
 
@@ -39,8 +37,8 @@ class RegistreActivity : AppCompatActivity() {
         }
 
         btRegister.setOnClickListener{
-            var email = bin.inputEmailRegisterScreen.text.toString()
-            var password = bin.inputPasswordRegisterScreen.text.toString()
+            val email = bin.inputEmailRegisterScreen.text.toString()
+            val password = bin.inputPasswordRegisterScreen.text.toString()
             crearUsuari(email,password)
         }
 
@@ -68,4 +66,9 @@ class RegistreActivity : AppCompatActivity() {
                 }
             }
     }
+
+
+
+
+
 }
