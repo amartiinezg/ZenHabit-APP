@@ -9,11 +9,11 @@ import android.content.Intent
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
-
 
         var buttonRegister_LoginScreen = findViewById<Button>(R.id.btRegister_LoginScreen)
         var btForgotPassword_LoginScreen = findViewById<Button>(R.id.buttonResetPassword)
@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
             Animatoo.animateSlideLeft(this)
         }
+
         btForgotPassword_LoginScreen.setOnClickListener{
             val intent = Intent(this, PasswordCodeRequest::class.java)
             startActivity(intent)
