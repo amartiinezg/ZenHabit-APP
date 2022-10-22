@@ -2,5 +2,5 @@
 <resources>
     <string name="errorNullUsername">L\'usuari no pot estar buit</string>
     <string name="errorNullPassword">La contraseña no pot estar buida</string>
-
+    <string name="errorNullEmail">El email no pot estar buit</string>
 </resources>

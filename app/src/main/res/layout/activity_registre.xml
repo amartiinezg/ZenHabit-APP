@@ -7,18 +7,52 @@
     android:background="@color/background"
     tools:context=".MainActivity">
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLayoutRegister"
+
+        android:layout_width="271dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="8dp"
+        android:hint="Contrasenya"
+        android:textColorHint="@color/hints"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLayout"
+        app:startIconDrawable="@drawable/ic_baseline_password_24"
+        app:startIconTint="@color/primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPassword_RegisterScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:inputType="textPassword"
+
+            android:textColor="@color/primary">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
-        android:layout_width="273dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="272dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="12dp"
         android:background="@color/transparent"
         android:textColorHint="@color/hints"
         app:boxBackgroundColor="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newUsernameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/usernameLayoutRegister"
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
         app:startIconTint="@color/primary">
 
@@ -44,20 +78,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/newUsernameLayout"
-        android:layout_width="273dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="350dp"
+        android:id="@+id/usernameLayoutRegister"
+        android:layout_width="274dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="324dp"
         android:background="@color/transparent"
         android:textColorHint="@color/hints"
         app:boxBackgroundColor="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
-        app:startIconTint="@color/primary"
 
-        >
+        app:startIconTint="@color/primary">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -76,38 +110,6 @@
 
 
             tools:layout_editor_absoluteY="33dp" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputPassword1"
-
-        android:layout_width="273dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:hint="Contrasenya"
-        android:textColorHint="@color/hints"
-        app:endIconMode="password_toggle"
-        app:endIconTint="@color/primary"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLayout"
-        app:startIconDrawable="@drawable/ic_baseline_password_24"
-        app:startIconTint="@color/primary">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputPassword_RegisterScreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:inputType="textPassword"
-
-            android:textColor="@color/primary">
-
-        </com.google.android.material.textfield.TextInputEditText>
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -182,5 +184,14 @@
         app:layout_constraintStart_toStartOf="@+id/btCancel_RegisterScreen"
         app:strokeColor="@color/primary"
         app:cornerRadius="12dp"/>
+
+    <TextView
+        android:id="@+id/snackbarRegister"
+        android:layout_width="177dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btCancel_RegisterScreen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
