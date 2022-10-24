@@ -3,4 +3,10 @@
     <string name="errorNullUsername">L\'usuari no pot estar buit</string>
     <string name="errorNullPassword">La contraseña no pot estar buida</string>
     <string name="errorNullEmail">El email no pot estar buit</string>
+    <string name="errorWrongPassword">La contraseña es incorrecta.</string>
+    <string name="errorInexistentEmail">El email no existeix</string>
+    <string name="errorEmailBadFormatted">El format del email no es correcte</string>
+    <string name="errorUnexistentUser">Aquest email no esta registrat.</string>
+
+
 </resources>

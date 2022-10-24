@@ -12,9 +12,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.example.zenhabit.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity() {
@@ -90,32 +93,28 @@ class MainActivity : AppCompatActivity() {
             val username = bin.inputUsernameLoginScreen.text.toString()
             val password = bin.inputPasswordLoginScreen.text.toString()
 
-            if ((username == "") && (password == "")) {
+            if ((username == ""))
                 layoutUsername.error = getString(R.string.errorNullUsername)
+
+            if (password == "")
                 layoutPassword.error = getString(R.string.errorNullPassword)
 
-            } else if (username == "") {
-                layoutUsername.error = getString(R.string.errorNullUsername)
-            } else if (password == "") {
-                layoutPassword.error = getString(R.string.errorNullPassword)
-                layoutPassword.startIconDrawable
+            if ((username != "") && (password != "")) {
 
-
-            } else {
-                login(username, password, tvsnackbar)
+                login(username, password, tvsnackbar, layoutUsername, layoutPassword)
+                utilities(edittextUsername, editTextPassword)
             }
-            Utilities(edittextUsername, editTextPassword)
-
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     }
 
     //Functions
-    private fun login(email: String, password: String, tvsnackbar:TextView){
+    private fun login(email: String, password: String, tvsnackbar:TextView, layoutUsername : TextInputLayout, layoutPassword : TextInputLayout){
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
+                var firebaseError : String = task.exception.toString()
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
@@ -127,18 +126,19 @@ class MainActivity : AppCompatActivity() {
                     Animatoo.animateSlideLeft(this)
 
 
-                } else  {
+                } else {
                     // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Snackbar.make(tvsnackbar,"El Usuari/Mail o la contrasenya son incorrectes.",Snackbar.LENGTH_LONG)
-                        .show()
+                handleErrorsUtility(firebaseError, layoutUsername, layoutPassword, tvsnackbar)
+
+            }
+
 
 
 
                 }
             }
 
-    }
+
 
     public override fun onStart() {
         super.onStart()
@@ -154,7 +154,33 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun Utilities(edittextUsername: EditText, editTextPassword: EditText){
+    private fun handleErrorsUtility(firebaseError : String, layoutUsername : TextInputLayout, layoutPassword: TextInputLayout, tvsnackbar: TextView){
+
+        if (firebaseError.contains("The password is invalid")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorWrongPassword), Snackbar.LENGTH_LONG)
+                .show()
+            layoutPassword.error = getString(R.string.errorWrongPassword)
+
+        }else if(firebaseError.contains("The email address is badly formatted.")){
+            Snackbar.make(tvsnackbar,getString(R.string.errorEmailBadFormatted), Snackbar.LENGTH_LONG)
+                .show()
+            layoutUsername.error = getString(R.string.errorEmailBadFormatted)
+
+        }else if (firebaseError.contains("The supplied auth credential is malformed or has expired.")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorInexistentEmail), Snackbar.LENGTH_LONG)
+                .show()
+            layoutUsername.error = getString(R.string.errorInexistentEmail)
+        }else if (firebaseError.contains("There is no user record corresponding to this identifier. The user may have been deleted.")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorUnexistentUser),Snackbar.LENGTH_LONG)
+                .show()
+            layoutUsername.error = getString(R.string.errorUnexistentUser)
+        }else{
+
+        }
+
+    }
+
+    private fun utilities(edittextUsername: EditText, editTextPassword: EditText){
 
         edittextUsername.clearFocus()
         editTextPassword.clearFocus()
