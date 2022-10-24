@@ -7,6 +7,6 @@
     <string name="errorInexistentEmail">El email no existeix</string>
     <string name="errorEmailBadFormatted">El format del email no es correcte</string>
     <string name="errorUnexistentUser">Aquest email no esta registrat.</string>
-
+    <string name="errorTempPassLocked">Ho has intentat masses vegades. Torna més tard.</string>
 
 </resources>

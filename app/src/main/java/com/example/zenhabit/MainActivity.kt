@@ -129,6 +129,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                 handleErrorsUtility(firebaseError, layoutUsername, layoutPassword, tvsnackbar)
+                    Log.d(TAG, "signInWithEmail:error", task.exception)
 
             }
 
@@ -174,6 +175,10 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(tvsnackbar, getString(R.string.errorUnexistentUser),Snackbar.LENGTH_LONG)
                 .show()
             layoutUsername.error = getString(R.string.errorUnexistentUser)
+
+        }else if (firebaseError.contains("We have blocked all requests from this device due to unusual activity. Try again later. ")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorTempPassLocked), Snackbar.LENGTH_LONG)
+                .show()
         }else{
 
         }
