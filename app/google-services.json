@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "691437615760",
-    "project_id": "zenhabit-bd19b",
-    "storage_bucket": "zenhabit-bd19b.appspot.com"
+    "project_number": "181272370655",
+    "project_id": "zenhabit-872df",
+    "storage_bucket": "zenhabit-872df.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:691437615760:android:6b38f3b5ccfc5096b6f615",
+        "mobilesdk_app_id": "1:181272370655:android:bd5c79e7657deec93f386a",
         "android_client_info": {
           "package_name": "com.example.zenhabit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "691437615760-ojh0kd12t0cr4iu5od63n5t0o60kn639.apps.googleusercontent.com",
+          "client_id": "181272370655-46khi64co9mhle2udt58rdbm5voaf52i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBL31hdEeWzG4SPrsDz04KnfW2xQKUXnuQ"
+          "current_key": "AIzaSyCS7tNXraV8g7EOaUQpEnGeZOG9nmRNf6k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "691437615760-ojh0kd12t0cr4iu5od63n5t0o60kn639.apps.googleusercontent.com",
+              "client_id": "181272370655-46khi64co9mhle2udt58rdbm5voaf52i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
