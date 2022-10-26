@@ -1,21 +1,20 @@
 package com.example.zenhabit
 
 import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.example.zenhabit.databinding.ActivityRegistreBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
 
 class RegistreActivity : AppCompatActivity() {
     private lateinit var bin: ActivityRegistreBinding
@@ -31,37 +30,31 @@ class RegistreActivity : AppCompatActivity() {
 
         val btCancel = bin.btCancelRegisterScreen
         val btRegister = bin.btRegister
-        var editTextUsername = bin.inputUsernameRegisterScreen
-        var editTextPassword = bin.inputPasswordRegisterScreen
-        var editTextEmail = bin.inputEmailRegisterScreen
-        var layoutUsername = bin.usernameLayoutRegister
-        var layoutPassword = bin.passwordLayoutRegister
-        var layoutEmail = bin.emailLayout
-        var tvsnackbar = bin.snackbarRegister
+        val editTextUsername = bin.inputUsernameRegisterScreen
+        val editTextPassword = bin.inputPasswordRegisterScreen
+        val editTextEmail = bin.inputEmailRegisterScreen
+        val layoutUsername = bin.usernameLayoutRegister
+        val layoutPassword = bin.passwordLayoutRegister
+        val layoutEmail = bin.emailLayout
+        val tvsnackbar = bin.snackbarRegister
 
         //Focused Listeners
 
-        editTextUsername.onFocusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
+        editTextUsername.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 layoutUsername.error = null
-            } else {
-
             }
         }
 
-        editTextPassword.onFocusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
+        editTextPassword.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 layoutPassword.error = null
-            } else {
-
             }
         }
 
-        editTextEmail.onFocusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
+        editTextEmail.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 layoutEmail.error = null
-            } else {
-
             }
         }
 
@@ -74,50 +67,31 @@ class RegistreActivity : AppCompatActivity() {
         }
 
         btRegister.setOnClickListener {
-            val nom = bin.inputUsernameRegisterScreen.text.toString()
+            val nom = bin.inputUsernameRegisterScreen.text.toString().trim()
             val password = bin.inputPasswordRegisterScreen.text.toString()
-            val email = bin.inputEmailRegisterScreen.text.toString()
+            val email = bin.inputEmailRegisterScreen.text.toString().trim()
 
-            if ((email == "") && (password == "") && (nom == "")) {
-                layoutEmail.error = getString(R.string.errorNullEmail)
+           if (email == "")
+               layoutEmail.error = getString(R.string.errorNullEmail)
+
+            if (nom == "")
+                layoutUsername.error = getString(R.string.errorNullUsername)
+
+            if (password == "")
                 layoutPassword.error = getString(R.string.errorNullPassword)
-                layoutUsername.error = getString(R.string.errorNullUsername)
 
-            } else if ((email == "") && (password == "")) {
-                layoutEmail.error = getString(R.string.errorNullEmail)
-                layoutEmail.error = getString(R.string.errorNullEmail)
-            } else if ((password == "") && (nom == "")) {
-                layoutPassword.error = getString(R.string.errorNullPassword)
-                layoutUsername.error = getString(R.string.errorNullUsername)
-            } else if ((email == "") && (nom == "")) {
-                layoutEmail.error = getString(R.string.errorNullEmail)
-                layoutUsername.error = getString(R.string.errorNullUsername)
-
-            }else if ((nom == "") && (password == "")){
-                layoutPassword.error = getString(R.string.errorNullPassword)
-                layoutUsername.error = getString(R.string.errorNullUsername)
-
-            }else if (email==""){
-                layoutEmail.error = getString(R.string.errorNullEmail)
-
-            }else if (nom==""){
-            layoutUsername.error = getString(R.string.errorNullUsername)
-
-            }else if (password == "") {
-            layoutPassword.error = getString(R.string.errorNullPassword)
-
-            }else {
-                crearUsuari(nom, password, tvsnackbar)
-            }
-            Utilities(editTextUsername, editTextPassword, editTextEmail)
+            if (email != "" && password != "" && nom != "")
+                crearUsuari(email, password, tvsnackbar, layoutEmail, layoutPassword)
+            utilities(editTextUsername, editTextPassword, editTextEmail)
         }
 
     }
 
-    private fun crearUsuari(email: String, password: String, tvsnackbar : TextView) {
+    private fun crearUsuari(email: String, password: String, tvsnackbar : TextView, emailLayout: TextInputLayout, passwordLayout: TextInputLayout) {
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
+                val firebaseError = task.exception.toString()
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
@@ -131,19 +105,50 @@ class RegistreActivity : AppCompatActivity() {
                 } else {
                     // If register, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Snackbar.make(tvsnackbar,"Error. Revisa els camps introduits", Snackbar.LENGTH_LONG)
-                        .show()
+                   handleErrorsUtility(firebaseError,emailLayout, passwordLayout, tvsnackbar )
 
                 }
             }
     }
 
-    fun Utilities(edittextUsername: EditText, editTextPassword: EditText, editTextEmail : EditText){
+    private fun utilities(edittextUsername: EditText, editTextPassword: EditText, editTextEmail : EditText){
 
         edittextUsername.clearFocus()
         editTextPassword.clearFocus()
         editTextEmail.clearFocus()
         editTextPassword.text?.clear()
+
+    }
+
+    private fun handleErrorsUtility(firebaseError : String, emailLayout : TextInputLayout, layoutPassword: TextInputLayout, tvsnackbar: TextView){
+
+        if (firebaseError.contains("The password is invalid")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorWrongPassword), Snackbar.LENGTH_LONG)
+                .show()
+            layoutPassword.error = getString(R.string.errorWrongPassword)
+
+        }else if(firebaseError.contains("The email address is badly formatted.")){
+            Snackbar.make(tvsnackbar,getString(R.string.errorEmailBadFormatted), Snackbar.LENGTH_LONG)
+                .show()
+            emailLayout.error = getString(R.string.errorEmailBadFormatted)
+
+        }else if (firebaseError.contains("The supplied auth credential is malformed or has expired.")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorInexistentEmail), Snackbar.LENGTH_LONG)
+                .show()
+           emailLayout.error = getString(R.string.errorInexistentEmail)
+        }else if (firebaseError.contains("There is no user record corresponding to this identifier. The user may have been deleted.")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorUnexistentUser),Snackbar.LENGTH_LONG)
+                .show()
+           emailLayout.error = getString(R.string.errorUnexistentUser)
+
+        }else if (firebaseError.contains("We have blocked all requests from this device due to unusual activity. Try again later. ")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorTempPassLocked), Snackbar.LENGTH_LONG)
+                .show()
+        }else if (firebaseError.contains("The email address is already in use by another account.")){
+            Snackbar.make(tvsnackbar, getString(R.string.errorEmailAlreadyInUse), Snackbar.LENGTH_LONG)
+                .show()
+            emailLayout.error = getString(R.string.errorEmailAlreadyInUse)
+        }
 
     }
 

@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
+        android:layout_marginEnd="22dp"
         android:text="Configuracions"
         android:textColor="@color/white"
         android:textSize="50sp"
@@ -40,20 +41,20 @@
         android:layout_width="199dp"
         android:layout_height="60dp"
 
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="132dp"
         android:text="Guardar"
         android:textColor="@color/primary"
         android:textSize="18dp"
         app:cornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeEmailLayout"
         app:strokeColor="@color/primary" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/newUsernameLayout"
-        android:layout_width="350dp"
-        android:layout_height="64dp"
+        android:layout_width="351dp"
+        android:layout_height="78dp"
         android:layout_marginTop="28dp"
         android:background="@color/transparent"
 
@@ -90,8 +91,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/changePasswordLayout"
 
-        android:layout_width="350dp"
-        android:layout_height="64dp"
+        android:layout_width="351dp"
+        android:layout_height="74dp"
         android:layout_marginTop="16dp"
         android:hint="Canviar contrasenya"
         android:textColorHint="@color/hints"
@@ -121,18 +122,18 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/changeEmailLayout"
-        android:layout_width="350dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="372dp"
+        android:layout_width="352dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="16dp"
         android:background="@color/transparent"
         android:textColorHint="@color/hints"
         app:boxBackgroundColor="@color/transparent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePasswordLayout"
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
-
         app:startIconTint="@color/primary">
 
 

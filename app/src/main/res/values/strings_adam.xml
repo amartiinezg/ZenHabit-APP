@@ -8,5 +8,8 @@
     <string name="errorEmailBadFormatted">El format del email no es correcte</string>
     <string name="errorUnexistentUser">Aquest email no esta registrat.</string>
     <string name="errorTempPassLocked">Ho has intentat masses vegades. Torna més tard.</string>
-
+    <string name="errorEmailAlreadyInUse">Aquest email ja esta registrat.</string>
+    <string name="emailSent">El email ha sigut enviat</string>
+    <string name="passwordChangeOk">Contraseña canviada correctament</string>
+    <string name="errorMismatchedPasswords">Les contraseñes no coincideixen.</string>
 </resources>

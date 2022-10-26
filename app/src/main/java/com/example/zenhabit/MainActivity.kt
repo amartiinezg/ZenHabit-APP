@@ -7,17 +7,14 @@ import android.util.Log
 import android.view.View.OnFocusChangeListener
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.example.zenhabit.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity() {
@@ -40,15 +37,15 @@ class MainActivity : AppCompatActivity() {
         /////////////////////////////////////////////////////////////////////
 
         //Declarated Variables
-        var tvsnackbar = bin.tvSnackBar
+        val tvsnackbar = bin.tvSnackBar
         val btRegister = bin.btRegisterLoginScreen
         val btForgotPassword = bin.buttonResetPassword
         val btLogin = bin.btLoginLoginScreen
 
-        var edittextUsername = bin.inputUsernameLoginScreen
-        var editTextPassword = bin.inputPasswordLoginScreen
-        var layoutUsername = bin.usernameLayout
-        var layoutPassword = bin.passwordLayout
+        val edittextUsername = bin.inputUsernameLoginScreen
+        val editTextPassword = bin.inputPasswordLoginScreen
+        val layoutUsername = bin.usernameLayout
+        val layoutPassword = bin.passwordLayout
 
 
         auth = Firebase.auth
@@ -56,19 +53,15 @@ class MainActivity : AppCompatActivity() {
 
         //Focused Listeners
 
-        edittextUsername.onFocusChangeListener = OnFocusChangeListener { view, hasFocus ->
+        edittextUsername.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 layoutUsername.error = null
-            } else {
-
             }
         }
 
-        editTextPassword.onFocusChangeListener = OnFocusChangeListener { view, hasFocus ->
+        editTextPassword.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 layoutPassword.error = null
-            } else {
-
             }
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,8 +83,8 @@ class MainActivity : AppCompatActivity() {
 
         btLogin.setOnClickListener {
 
-            val username = bin.inputUsernameLoginScreen.text.toString()
-            val password = bin.inputPasswordLoginScreen.text.toString()
+            val username = bin.inputUsernameLoginScreen.text.toString().trim()
+            val password = bin.inputPasswordLoginScreen.text.toString().trim()
 
             if ((username == ""))
                 layoutUsername.error = getString(R.string.errorNullUsername)
@@ -114,7 +107,7 @@ class MainActivity : AppCompatActivity() {
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
-                var firebaseError : String = task.exception.toString()
+                val firebaseError : String = task.exception.toString()
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
@@ -179,8 +172,6 @@ class MainActivity : AppCompatActivity() {
         }else if (firebaseError.contains("We have blocked all requests from this device due to unusual activity. Try again later. ")){
             Snackbar.make(tvsnackbar, getString(R.string.errorTempPassLocked), Snackbar.LENGTH_LONG)
                 .show()
-        }else{
-
         }
 
     }
