@@ -1,5 +1,6 @@
 package com.example.zenhabit
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,6 +9,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo
 
 class Introduction2 : AppCompatActivity() {
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_introduction_2)
