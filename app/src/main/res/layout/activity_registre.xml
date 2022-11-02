@@ -44,13 +44,13 @@
         android:id="@+id/emailLayout"
         android:layout_width="272dp"
         android:layout_height="76dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:background="@color/transparent"
         android:textColorHint="@color/hints"
         app:boxBackgroundColor="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameLayoutRegister"
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
@@ -80,17 +80,16 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usernameLayoutRegister"
         android:layout_width="274dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="324dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="12dp"
         android:background="@color/transparent"
         android:textColorHint="@color/hints"
         app:boxBackgroundColor="@color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIniciSessio2"
+        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
         app:startIconTint="@color/primary">
 
 
@@ -161,16 +160,13 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="199dp"
         android:layout_height="61dp"
-        app:cornerRadius="12dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="32dp"
         android:text="CANCEL·LA"
         android:textColor="@color/red"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btRegister"
         app:strokeColor="@color/red" />
 
     <com.google.android.material.button.MaterialButton
@@ -178,12 +174,14 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="199dp"
         android:layout_height="60dp"
+        android:layout_marginTop="8dp"
         android:text="Registre't"
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/btCancel_RegisterScreen"
-        app:layout_constraintStart_toStartOf="@+id/btCancel_RegisterScreen"
-        app:strokeColor="@color/primary"
-        app:cornerRadius="12dp"/>
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLayoutRegister"
+        app:strokeColor="@color/primary" />
 
     <TextView
         android:id="@+id/snackbarRegister"
