@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                     Log.d(TAG, "signInWithEmail:success")
 
 
-                    val intent = Intent(this, PasswordCodeRequest::class.java)
+                    val intent = Intent(this, acitivity_menuNavigation::class.java)
                     startActivity(intent)
 
                     Animatoo.animateSlideLeft(this)
@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    public override fun onStart() {
+    /*public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
         }else{
 //hol
         }
-    }
+    }*/
 
     private fun handleErrorsUtility(firebaseError : String, layoutUsername : TextInputLayout, layoutPassword: TextInputLayout, tvsnackbar: TextView){
 
