@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="74dp"
         android:background="@drawable/rectangle_gray_menu"
-        android:gravity="center|left"
+        android:gravity="center|center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -22,8 +22,8 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="90dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
             android:contentDescription="Daily"
             app:backgroundTint="@color/grey_menu"
             app:cornerRadius="50dp"
@@ -36,7 +36,7 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="90dp"
+            android:layout_marginLeft="80dp"
             android:contentDescription="Home"
             app:cornerRadius="50dp"
             app:icon="@drawable/home_icon"
@@ -48,6 +48,7 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
             android:contentDescription="Settings"
             app:backgroundTint="@color/grey_menu"
             app:cornerRadius="50dp"
@@ -57,7 +58,7 @@
     </LinearLayout>
 
     <FrameLayout
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="656dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintStart_toStartOf="parent">

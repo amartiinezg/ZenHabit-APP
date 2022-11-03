@@ -13,6 +13,7 @@ class acitivity_menuNavigation : AppCompatActivity() {
         val dailyBtn: Button = findViewById(R.id.daily_menu)
         val homeBtn: Button = findViewById(R.id.home_menu)
         val settingBtn: Button = findViewById(R.id.settings_menu)
+        val tasksBtn: Button = findViewById(R.id.btTasques)
 
         dailyBtn.setOnClickListener{
             dailyBtn.setEnabled(false)
