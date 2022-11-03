@@ -12,6 +12,7 @@
     <color name="hints">#96A7AF</color>
     <color name="primary">#1DBE7D</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="grey_menu">#30444E</color>
     <color name="shadow">#7F000000</color>
     <color name="red">#FF0000</color>
     <color name="green">#3ED598</color>
