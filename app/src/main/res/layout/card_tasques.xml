@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_task"
+    android:layout_margin="12dp"
+    app:cardBackgroundColor="@color/backgrounddiary"
+    app:cardCornerRadius="50dp"
+    app:cardElevation="4dp"
+    app:contentPadding="4dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:orientation="horizontal"
+        android:paddingLeft="10sp"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/lbl_TaskName"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginRight="10sp"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="0"
+            android:gravity="center|left"
+            android:text="Nom_Tasca"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginRight="15sp"
+            android:layout_weight="0"
+            android:src="@drawable/rectangle_red" />
+
+        <Space
+            android:layout_width="61dp"
+            android:layout_height="13dp"
+            android:layout_weight="0" />
+
+        <TextView
+            android:id="@+id/lbl_TaskTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Hora_Tasca"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="19dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_EditTask"
+            android:layout_width="48dp"
+
+            android:layout_height="48dp"
+            android:contentDescription="@string/boto_per_editar_tasca"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:iconGravity="textEnd"
+            app:iconPadding="0sp"
+            app:iconSize="20sp" />
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

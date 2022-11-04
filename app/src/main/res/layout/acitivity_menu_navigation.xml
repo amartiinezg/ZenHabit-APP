@@ -20,8 +20,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/daily_menu"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="52dp"
+            android:layout_height="61dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:contentDescription="Daily"
@@ -29,32 +29,33 @@
             app:cornerRadius="50dp"
             app:icon="@drawable/daily_icon"
             app:iconSize="20dp"
-            app:iconTint="@color/green" />
+            app:iconTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/home_menu"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="52dp"
+            android:layout_height="61dp"
             android:layout_marginLeft="80dp"
+            android:backgroundTint="@color/green"
             android:contentDescription="Home"
             app:cornerRadius="50dp"
             app:icon="@drawable/home_icon"
             app:iconSize="20dp"
-            app:iconTint="@color/green" />
+            app:iconTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/settings_menu"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="52dp"
+            android:layout_height="61dp"
             android:layout_marginLeft="80dp"
             android:contentDescription="Settings"
             app:backgroundTint="@color/grey_menu"
             app:cornerRadius="50dp"
             app:icon="@drawable/nut_icon"
             app:iconSize="20dp"
-            app:iconTint="@color/green" />
+            app:iconTint="@color/white" />
     </LinearLayout>
 
     <FrameLayout

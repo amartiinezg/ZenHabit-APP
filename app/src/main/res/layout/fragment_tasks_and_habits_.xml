@@ -15,7 +15,7 @@
             android:id="@+id/linearLayout4"
             android:layout_width="354dp"
             android:layout_height="271dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/rectangle_primary"
             android:orientation="vertical"
             android:paddingLeft="20sp"
@@ -203,10 +203,10 @@
 
         <LinearLayout
             android:id="@+id/linearLayout6"
-            android:layout_width="354dp"
-            android:layout_height="133dp"
-            android:layout_marginStart="28dp"
+            android:layout_width="377dp"
+            android:layout_height="154dp"
             android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
@@ -274,75 +274,10 @@
 
             </LinearLayout>
 
-            <ScrollView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reclyclerView_tasques"
                 android:layout_width="match_parent"
-                android:layout_height="133dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="3sp"
-                        android:background="@drawable/rectangle_backgroundcolor_rounded"
-                        android:gravity="center|left"
-                        android:orientation="horizontal"
-                        android:paddingLeft="20sp">
-
-                        <TextView
-                            android:id="@+id/lbl_Task4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:layout_marginRight="10sp"
-                            android:layout_weight="0"
-                            android:gravity="center|left"
-                            android:text="Menjar Avena"
-                            android:textColor="@color/white"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:id="@+id/square_red5"
-                            android:layout_width="5dp"
-                            android:layout_height="5dp"
-                            android:layout_marginRight="15sp"
-                            android:layout_weight="0"
-                            android:src="@drawable/rectangle_red" />
-
-                        <Space
-                            android:layout_width="83dp"
-                            android:layout_height="16dp"
-                            android:layout_weight="0" />
-
-                        <TextView
-                            android:id="@+id/lbl_time_Task4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:text="10:00"
-                            android:textColor="@color/white" />
-
-                        <Space
-                            android:layout_width="18dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/button_EditTask"
-                            android:layout_width="48dp"
-
-                            android:layout_height="48dp"
-                            android:contentDescription="@string/boto_per_editar_tasca"
-                            app:icon="@android:drawable/ic_menu_edit"
-                            app:iconGravity="textEnd"
-                            app:iconPadding="0sp"
-                            app:iconSize="20sp" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </ScrollView>
+                android:layout_height="133dp" />
 
         </LinearLayout>
 
