@@ -18,12 +18,13 @@
             android:id="@+id/lbl_Jardi"
             android:layout_width="111dp"
             android:layout_height="51dp"
-            android:layout_marginStart="52dp"
             android:layout_marginTop="16dp"
             android:text="@string/jardi"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.173"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,11 +32,11 @@
             android:id="@+id/lbl_EarnIt"
             android:layout_width="305dp"
             android:layout_height="51dp"
-            android:layout_marginStart="52dp"
             android:layout_marginTop="28dp"
             android:text="@string/aconseguit"
             android:textColor="@color/white"
             android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
@@ -43,11 +44,12 @@
             android:id="@+id/linearLayout2"
             android:layout_width="145dp"
             android:layout_height="205dp"
-            android:layout_marginStart="52dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/rectangle"
             android:orientation="vertical"
             android:paddingLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.199"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_Jardi">
 
@@ -115,12 +117,13 @@
         <LinearLayout
             android:layout_width="145dp"
             android:layout_height="205dp"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/rectangle_red"
             android:orientation="vertical"
             android:paddingLeft="10dp"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_Jardi">
 
             <LinearLayout
@@ -184,69 +187,16 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/jardiRecyclerView"
             android:layout_width="305dp"
             android:layout_height="309dp"
-            android:layout_marginStart="52dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/recompenses"
             android:paddingTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lbl_EarnIt">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/rectangle_primarycolor_disabled"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
-
-                <ImageView
-                    android:id="@+id/img_tree_Earned"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="0"
-                    android:background="@drawable/tree_1"
-                    app:srcCompat="@drawable/tree_1" />
-
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/lbl_treesEarn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/arbres"
-                        android:textColor="@color/primary"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/lbl_earnedTrees"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Has obtingut x"
-                        android:textColor="@color/primary" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/img_playbutton"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="0"
-                    app:srcCompat="@drawable/padlock_opened" />
-
-            </LinearLayout>
-        </ScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/lbl_EarnIt"></androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
