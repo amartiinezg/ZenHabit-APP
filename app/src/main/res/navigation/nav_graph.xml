@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home2">
+
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.zenhabit.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_diaryScreen"
+            app:destination="@id/diaryScreen" />
+        <action
+            android:id="@+id/action_home2_to_jardi"
+            app:destination="@id/jardi" />
+        <action
+            android:id="@+id/action_home2_to_tasksAndHabits_Fragment3"
+            app:destination="@id/tasksAndHabits_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryScreen"
+        android:name="com.example.zenhabit.DiaryScreen"
+        android:label="fragment_diary_screen"
+        tools:layout="@layout/fragment_diary_screen" />
+    <fragment
+        android:id="@+id/jardi"
+        android:name="com.example.zenhabit.jardi"
+        android:label="fragment_jardi"
+        tools:layout="@layout/fragment_jardi" />
+    <fragment
+        android:id="@+id/tasksAndHabits_Fragment"
+        android:name="com.example.zenhabit.TasksAndHabits_Fragment"
+        android:label="fragment_tasks_and_habits_"
+        tools:layout="@layout/fragment_tasks_and_habits_" >
+        <action
+            android:id="@+id/action_tasksAndHabits_Fragment_to_editTask_Fragment"
+            app:destination="@id/editTask_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTask_Fragment"
+        android:name="com.example.zenhabit.EditTask_Fragment"
+        android:label="fragment_edit_task_"
+        tools:layout="@layout/fragment_edit_task_" />
+</navigation>
+

@@ -12,4 +12,5 @@
     <string name="emailSent">El email ha sigut enviat</string>
     <string name="passwordChangeOk">Contraseña canviada correctament</string>
     <string name="errorMismatchedPasswords">Les contraseñes no coincideixen.</string>
+    <string name="recommendedPassword">Contrasenya recomanada</string>
 </resources>

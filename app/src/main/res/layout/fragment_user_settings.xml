@@ -91,8 +91,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/changePasswordLayout"
 
-        android:layout_width="351dp"
-        android:layout_height="74dp"
+        android:layout_width="344dp"
+        android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:hint="Canviar contrasenya"
         android:textColorHint="@color/hints"
@@ -124,13 +124,13 @@
         android:id="@+id/changeEmailLayout"
         android:layout_width="352dp"
         android:layout_height="72dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:background="@color/transparent"
         android:textColorHint="@color/hints"
         app:boxBackgroundColor="@color/transparent"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changePasswordLayout"
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
@@ -156,6 +156,20 @@
 
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonRecommendedPassword"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="288dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="@string/recommendedPassword"
+        android:textAllCaps="false"
+        android:textColor="@color/hints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePasswordLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
