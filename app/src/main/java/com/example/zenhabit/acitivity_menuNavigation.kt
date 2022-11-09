@@ -10,6 +10,7 @@ import androidx.core.graphics.drawable.DrawableCompat
 
 class acitivity_menuNavigation : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.acitivity_menu_navigation)
@@ -26,7 +27,7 @@ class acitivity_menuNavigation : AppCompatActivity() {
             homeBtn.background.setTint(resources.getColor(R.color.transparent))
             settingBtn.setEnabled(true)
             settingBtn.background.setTint(resources.getColor(R.color.transparent))
-            supportFragmentManager.beginTransaction().replace(R.id.contenedorFragments, TasksAndHabits_Fragment()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.contenedorFragments, jardi()).commit()
         }
         homeBtn.setOnClickListener{
             dailyBtn.setEnabled(true)

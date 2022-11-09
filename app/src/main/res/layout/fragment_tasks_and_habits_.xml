@@ -168,13 +168,13 @@
 
         <LinearLayout
             android:id="@+id/linearLayout5"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="76dp"
             android:gravity="center|left"
             android:orientation="horizontal"
-            android:paddingLeft="30sp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-            tools:layout_editor_absoluteX="0dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
             <TextView
                 android:id="@+id/lbl_TaskTitle"
@@ -186,7 +186,7 @@
                 android:textSize="30sp" />
 
             <Space
-                android:layout_width="176dp"
+                android:layout_width="204dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0" />
 
@@ -260,8 +260,7 @@
                     android:layout_height="5dp"
                     android:layout_marginRight="5sp"
                     android:layout_weight="0"
-                    android:src="@drawable/rectangle_red"
-                    app:srcCompat="@drawable/rectangle_yellow" />
+                    android:src="@drawable/rectangle_yellow" />
 
                 <TextView
                     android:id="@+id/lbl_Habit"
@@ -314,10 +313,9 @@
                     android:id="@+id/lbl_seguiment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="Seguiment"
                     android:textColor="@color/white"
-                    android:textSize="18sp"
-                    tools:text="Seguiment" />
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -361,8 +359,7 @@
                         android:layout_height="10dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="0"
-                        android:src="@drawable/rectangle_yellow"
-                        app:srcCompat="@drawable/rectangle_red" />
+                        android:src="@drawable/rectangle_red" />
 
                     <TextView
                         android:id="@+id/lbl_pendents"

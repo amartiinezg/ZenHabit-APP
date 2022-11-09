@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zenhabit.classes.TaskCard
 
-class CustomAdapter(private val dataSet: Array<TaskCard>) :
-    RecyclerView.Adapter<CustomAdapter.TasksViewHolder>() {
+class Adapter_TaskCard(private val dataSet: Array<TaskCard>) :
+    RecyclerView.Adapter<Adapter_TaskCard.TasksViewHolder>() {
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): TasksViewHolder {

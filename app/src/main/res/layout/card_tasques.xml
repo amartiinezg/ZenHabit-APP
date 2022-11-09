@@ -6,7 +6,7 @@
     android:id="@+id/card_task"
     android:layout_margin="12dp"
     app:cardBackgroundColor="@color/backgrounddiary"
-    app:cardCornerRadius="50dp"
+    app:cardCornerRadius="30dp"
     app:cardElevation="4dp"
     app:contentPadding="4dp"
     >
@@ -21,10 +21,10 @@
 
         <TextView
             android:id="@+id/lbl_TaskName"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="48dp"
-            android:layout_marginRight="10sp"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="10sp"
             android:layout_weight="0"
             android:gravity="center|left"
             android:text="Nom_Tasca"
