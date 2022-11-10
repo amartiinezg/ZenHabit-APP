@@ -54,4 +54,18 @@
     <string name="passwordChangeOk">Contraseña canviada correctament</string>
     <string name="errorMismatchedPasswords">Les contraseñes no coincideixen.</string>
     <string name="recommendedPassword">Contrasenya recomanada</string>
+    <string name="reptes_diaris">Reptes diaris</string>
+    <string name="llegir_10_minuts">Llegir 10 minuts</string>
+    <string name="todo">TODO</string>
+    <string name="veure_recompensa">Veure recompensa</string>
+    <string name="fes_te_un_selfie">Fes\'te un selfie</string>
+    <string name="todoUppercase">TODO</string>
+    <string name="veure_recompensa_UpperCase">Veure recompensa</string>
+    <string name="_10_flexions">10 flexions</string>
+    <string name="todo3">TODO</string>
+    <string name="ordenar_per">Ordenar per:</string>
+    <string name="reptes">Reptes</string>
+    <string name="h_bits">Hàbits</string>
+    <string name="seguiment">Seguiment</string>
+    <string name="complerts">Complerts</string>
 </resources>
