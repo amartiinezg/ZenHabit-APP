@@ -1,10 +1,11 @@
-package com.example.zenhabit
+package com.example.zenhabit.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MotionEventCompat
+import com.example.zenhabit.R
 
 class IntroductionActivity_1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.example.zenhabit
+package com.example.zenhabit.activities
 
 import android.content.ContentValues
 import android.content.Intent
@@ -8,8 +8,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
+import com.example.zenhabit.R
 import com.example.zenhabit.databinding.ActivityPasswordCodeRequestBinding
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

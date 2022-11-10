@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_2"
-    tools:context=".IntroductionActivity_1">
+    tools:context=".activities.IntroductionActivity_1">
 
     <TextView
         android:id="@+id/circulo1"

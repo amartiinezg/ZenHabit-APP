@@ -27,7 +27,7 @@
             android:layout_marginRight="10sp"
             android:layout_weight="0"
             android:gravity="center|left"
-            android:text="Nom_Tasca"
+            android:text="@string/nom_tasca"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Hora_Tasca"
+            android:text="@string/hora_tasca"
             android:textColor="@color/white" />
 
         <Space

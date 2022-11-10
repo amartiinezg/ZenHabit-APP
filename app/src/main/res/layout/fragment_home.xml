@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".Home">
+    tools:context="com.example.zenhabit.fragments.Home">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -19,11 +19,11 @@
         android:layout_marginEnd="24dp"
         android:drawableBottom="@drawable/diari"
         android:fontFamily="sans-serif"
-        android:text="Diari"
+        android:text="@string/DiaryScreenTitle"
         android:textAlignment="textStart"
 
         android:textAllCaps="false"
-        android:textSize="21dp"
+        android:textSize="21sp"
         android:textStyle="bold"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,11 +38,12 @@
         android:layout_marginTop="120dp"
         android:drawableBottom="@drawable/arbol"
         android:fontFamily="sans-serif"
-        android:text="Jardí"
+        android:text="@string/jard"
         android:textAlignment="textStart"
 
         android:textAllCaps="false"
-        android:textSize="21dp"
+
+        android:textSize="21sp"
         android:textStyle="bold"
         app:cornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,11 +57,11 @@
         android:layout_marginTop="40dp"
         android:drawableBottom="@drawable/pesas"
         android:fontFamily="sans-serif"
-        android:text="Tasques"
+        android:text="@string/tvTasques"
         android:textAlignment="textStart"
         android:textAllCaps="false"
 
-        android:textSize="21dp"
+        android:textSize="21sp"
         android:textStyle="bold"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,9 +75,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:drawableStart="@drawable/ic_baseline_notifications_24"
-        android:text="Tens (x) activitats pendents"
+        android:text="@string/tens_x_activitats_pendents"
         android:textColor="@color/white"
-        android:textSize="22dp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"

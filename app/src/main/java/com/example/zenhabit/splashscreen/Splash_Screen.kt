@@ -1,9 +1,11 @@
-package com.example.zenhabit
+package com.example.zenhabit.splashscreen
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.example.zenhabit.R
+import com.example.zenhabit.activities.IntroductionActivity_1
 
 
 class Splash_Screen : AppCompatActivity() {

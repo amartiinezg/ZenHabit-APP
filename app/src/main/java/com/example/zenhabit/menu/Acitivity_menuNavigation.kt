@@ -1,12 +1,13 @@
-package com.example.zenhabit
+package com.example.zenhabit.activities
 
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import androidx.core.graphics.drawable.DrawableCompat
+import com.example.zenhabit.R
+import com.example.zenhabit.fragments.Home
+import com.example.zenhabit.fragments.UserSettings
+import com.example.zenhabit.fragments.jardi
+
 
 class acitivity_menuNavigation : AppCompatActivity() {
 

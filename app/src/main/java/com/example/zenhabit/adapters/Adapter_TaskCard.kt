@@ -1,10 +1,11 @@
-package com.example.zenhabit
+package com.example.zenhabit.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zenhabit.R
 import com.example.zenhabit.classes.TaskCard
 
 class Adapter_TaskCard(private val dataSet: Array<TaskCard>) :

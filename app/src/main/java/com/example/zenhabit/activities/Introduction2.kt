@@ -1,4 +1,4 @@
-package com.example.zenhabit
+package com.example.zenhabit.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
+import com.example.zenhabit.R
 
 class Introduction2 : AppCompatActivity() {
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home2"
-        android:name="com.example.zenhabit.Home"
+        android:name="com.example.zenhabit.fragments.Home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -22,17 +22,17 @@
     </fragment>
     <fragment
         android:id="@+id/diaryScreen"
-        android:name="com.example.zenhabit.DiaryScreen"
+        android:name="com.example.zenhabit.fragments.DiaryScreen"
         android:label="fragment_diary_screen"
         tools:layout="@layout/fragment_diary_screen" />
     <fragment
         android:id="@+id/jardi"
-        android:name="com.example.zenhabit.jardi"
+        android:name="com.example.zenhabit.fragments.jardi"
         android:label="fragment_jardi"
         tools:layout="@layout/fragment_jardi" />
     <fragment
         android:id="@+id/tasksAndHabits_Fragment"
-        android:name="com.example.zenhabit.TasksAndHabits_Fragment"
+        android:name="com.example.zenhabit.fragments.TasksAndHabits_Fragment"
         android:label="fragment_tasks_and_habits_"
         tools:layout="@layout/fragment_tasks_and_habits_" >
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/editTask_Fragment"
-        android:name="com.example.zenhabit.EditTask_Fragment"
+        android:name="com.example.zenhabit.fragments.EditTask_Fragment"
         android:label="fragment_edit_task_"
         tools:layout="@layout/fragment_edit_task_" />
 </navigation>
