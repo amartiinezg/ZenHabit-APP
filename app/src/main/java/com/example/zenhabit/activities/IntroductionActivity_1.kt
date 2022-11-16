@@ -6,13 +6,24 @@ import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MotionEventCompat
 import com.example.zenhabit.R
+import com.google.firebase.auth.FirebaseAuth
+
 
 class IntroductionActivity_1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_introduction_1)
 
+        val user = FirebaseAuth.getInstance().currentUser
+
+        if (user != null){
+            val intent = Intent(this, acitivity_menuNavigation::class.java)
+            startActivity(intent)
+        }
+
     }
+
+
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         return when (MotionEventCompat.getActionMasked(event)) {

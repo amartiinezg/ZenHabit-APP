@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="22dp"
-        android:text="Configuracions"
+        android:text="@string/configuracions"
         android:textColor="@color/white"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Configura el teu perfil"
+        android:text="@string/configura_el_teu_perfil"
         android:textColor="@color/primary"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,20 +36,36 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSettingsLabel" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btLogin_LoginScreen"
+        android:id="@+id/btSaveChanges"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="199dp"
         android:layout_height="60dp"
 
-        android:layout_marginTop="132dp"
-        android:text="Guardar"
+        android:layout_marginTop="36dp"
+        android:text="@string/guardar"
         android:textColor="@color/primary"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeEmailLayout"
         app:strokeColor="@color/primary" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btLogout"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="199dp"
+        android:layout_height="60dp"
+
+        android:layout_marginTop="4dp"
+        android:text="@string/tancar_sessi"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btSaveChanges"
+        app:strokeColor="@color/red" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/newUsernameLayout"
@@ -75,7 +91,7 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
 
-            android:hint="Canviar nom d'usuari"
+            android:hint="@string/canviar_nom_d_usuari"
 
             android:inputType="text"
             android:textColor="@color/primary"
@@ -94,7 +110,7 @@
         android:layout_width="344dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
-        android:hint="Canviar contrasenya"
+        android:hint="@string/canviar_contrasenya"
         android:textColorHint="@color/hints"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/primary"
@@ -144,7 +160,7 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
 
-            android:hint="Canviar email"
+            android:hint="@string/canviar_email"
 
             android:inputType="textEmailAddress"
             android:textColor="@color/primary"
@@ -169,7 +185,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changePasswordLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/changePasswordLayout"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

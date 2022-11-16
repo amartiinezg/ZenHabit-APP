@@ -68,4 +68,11 @@
     <string name="h_bits">Hàbits</string>
     <string name="seguiment">Seguiment</string>
     <string name="complerts">Complerts</string>
+    <string name="configuracions">Configuracions</string>
+    <string name="configura_el_teu_perfil">Configura el teu perfil</string>
+    <string name="guardar">Guardar</string>
+    <string name="tancar_sessi">Tancar Sessió</string>
+    <string name="canviar_nom_d_usuari">Canviar nom d\'usuari</string>
+    <string name="canviar_contrasenya">Canviar contrasenya</string>
+    <string name="canviar_email">Canviar email</string>
 </resources>
