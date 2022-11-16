@@ -1,6 +1,7 @@
 package com.example.zenhabit.fragments
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -54,30 +55,19 @@ class UserSettings : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentUserSettingsBinding.bind(view)
         var implicitIntent : Button = binding.buttonRecommendedPassword
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         var logoutButton : Button = binding.btLogout
+
+
+        implicitIntent.setOnClickListener{
+
+            val urlIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.lastpass.com/es/features/password-generator")
+            )
+            startActivity(urlIntent)
+        }
+
+
 
         logoutButton.setOnClickListener{
             Firebase.auth.signOut()
