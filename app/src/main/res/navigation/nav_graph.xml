@@ -25,6 +25,9 @@
         android:name="com.example.zenhabit.fragments.DiaryScreen"
         android:label="fragment_diary_screen"
         tools:layout="@layout/fragment_diary_screen" />
+        <action
+            android:id="@+id/action_dariScreen_to_home2"
+            app:destination="@id/home2" />
     <fragment
         android:id="@+id/jardi"
         android:name="com.example.zenhabit.fragments.jardi"
