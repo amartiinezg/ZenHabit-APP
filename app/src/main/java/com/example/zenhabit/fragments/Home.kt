@@ -50,6 +50,14 @@ class Home : Fragment() {
          findNavController().navigate(R.id.action_home2_to_diaryScreen)
      }
 
+        binding.btJardi.setOnClickListener{
+            findNavController().navigate(R.id.action_home2_to_jardi)
+        }
+
+        binding.btTasques.setOnClickListener{
+            findNavController().navigate(R.id.action_home2_to_tasksAndHabits_Fragment3)
+        }
+
 
 
         return view

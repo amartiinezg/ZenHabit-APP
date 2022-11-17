@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.zenhabit.R
 import com.example.zenhabit.adapters.Adapter_TaskCard
 import com.example.zenhabit.classes.TaskCard
 import com.example.zenhabit.databinding.FragmentTasksAndHabitsBinding
@@ -33,6 +35,13 @@ class TasksAndHabits_Fragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
        binding = FragmentTasksAndHabitsBinding.inflate(layoutInflater)
+
+        binding.floatButtonAddTask.setOnClickListener{
+
+
+                findNavController().navigate(R.id.action_tasksAndHabits_Fragment_to_editTask_Fragment)
+
+        }
        return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
