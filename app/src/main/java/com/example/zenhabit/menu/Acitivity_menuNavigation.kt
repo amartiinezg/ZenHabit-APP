@@ -3,12 +3,15 @@ package com.example.zenhabit.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.zenhabit.R
 import com.example.zenhabit.fragments.Home
 import com.example.zenhabit.fragments.UserSettings
 import com.example.zenhabit.fragments.jardi
+import com.google.android.material.snackbar.Snackbar
 
 
 class acitivity_menuNavigation : AppCompatActivity() {
@@ -38,7 +41,7 @@ class acitivity_menuNavigation : AppCompatActivity() {
             dailyBtn.background.setTint(resources.getColor(R.color.transparent))
 
 
-            homeBtn.setEnabled(false)
+            homeBtn.setEnabled(true)
             homeBtn.background.setTint(resources.getColor(R.color.green))
 
             settingBtn.setEnabled(true)
@@ -53,7 +56,7 @@ class acitivity_menuNavigation : AppCompatActivity() {
 
             settingBtn.setEnabled(false)
             settingBtn.background.setTint(resources.getColor(R.color.green))
-
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, UserSettings()).commit()
         }
     }
 }
