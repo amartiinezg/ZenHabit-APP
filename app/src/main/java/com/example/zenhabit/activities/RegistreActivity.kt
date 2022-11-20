@@ -15,14 +15,17 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class RegistreActivity : AppCompatActivity() {
     private lateinit var bin: ActivityRegistreBinding
     private lateinit var auth: FirebaseAuth
-
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registre)
         auth = Firebase.auth
@@ -88,20 +91,33 @@ class RegistreActivity : AppCompatActivity() {
 
     }
 
-    private fun crearUsuari(email: String, password: String, tvsnackbar : TextView, emailLayout: TextInputLayout, passwordLayout: TextInputLayout) {
+    private fun crearUsuari(username: String, password: String, tvsnackbar : TextView, emailLayout: TextInputLayout, passwordLayout: TextInputLayout) {
 
-        auth.createUserWithEmailAndPassword(email, password)
+        auth.createUserWithEmailAndPassword(username, password)
             .addOnCompleteListener(this) { task ->
                 val firebaseError = task.exception.toString()
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
 
+                    //Crear documentos de base de datos en firestore.
 
-                    val intent = Intent(this, MainActivity::class.java)
+                    val test1 = hashMapOf(
+                        "test" to "test",
+                        "born" to 1815
+                    )
+
+                    db.collection("users").document(username).set(test1)
+
+
+
+                    val intent = Intent(this, acitivity_menuNavigation::class.java)
                     startActivity(intent)
 
-                    Animatoo.animateSlideRight(this)
+                    Animatoo.animateSlideLeft(this)
+
+
+
 
                 } else {
                     // If register, display a message to the user.

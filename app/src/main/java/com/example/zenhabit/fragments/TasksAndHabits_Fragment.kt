@@ -67,6 +67,8 @@ class TasksAndHabits_Fragment : Fragment() {
 
         binding.reclyclerViewTasques.layoutManager = LinearLayoutManager(activity)
         binding.reclyclerViewTasques.adapter = Adapter_TaskCard(data)
+
+
     }
 
 
