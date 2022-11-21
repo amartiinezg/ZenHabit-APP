@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.zenhabit.R
 import com.example.zenhabit.databinding.FragmentHomeBinding
+import com.example.zenhabit.utilities.DataBaseUtils
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,6 +44,7 @@ class Home : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 

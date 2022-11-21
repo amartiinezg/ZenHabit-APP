@@ -44,6 +44,8 @@ class Adapter_JardiCard(private val dataSet: Array<JardiCard>) :
             viewHolder.jardiTextStatusReward.setImageResource(R.drawable.padlock_opened)
             viewHolder.card.setCardBackgroundColor(viewHolder.card.context.resources.getColor(R.color.transparent_green))
         }
+
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

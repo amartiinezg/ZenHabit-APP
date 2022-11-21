@@ -42,6 +42,8 @@ class TasksAndHabits_Fragment : Fragment() {
                 findNavController().navigate(R.id.action_tasksAndHabits_Fragment_to_editTask_Fragment)
 
         }
+
+        binding.reclyclerViewTasques
        return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
