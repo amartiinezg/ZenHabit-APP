@@ -1,14 +1,24 @@
 package com.example.zenhabit.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zenhabit.R
 import com.example.zenhabit.classes.TaskCard
+import com.example.zenhabit.databinding.ActivityMenuNavigationBinding
+import com.example.zenhabit.fragments.Home
+import com.example.zenhabit.fragments.TasksAndHabits_Fragment
 
-class Adapter_TaskCard(private val dataSet: Array<TaskCard>) :
+class Adapter_TaskCard(val Frag :Fragment,private val dataSet: Array<TaskCard>) :
     RecyclerView.Adapter<Adapter_TaskCard.TasksViewHolder>() {
 
     // Create new views (invoked by the layout manager)
@@ -28,7 +38,9 @@ class Adapter_TaskCard(private val dataSet: Array<TaskCard>) :
 
         viewHolder.taskNameTextView.text = dataSet[position].taskName
         viewHolder.taskTimeTextView.text = dataSet[position].taskTime
-
+        viewHolder.btn_EditarTasca.setOnClickListener{
+            findNavController(Frag).navigate(R.id.action_tasksAndHabits_Fragment_to_editTask_Fragment)
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -41,11 +53,13 @@ class Adapter_TaskCard(private val dataSet: Array<TaskCard>) :
     class TasksViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val taskNameTextView: TextView
         val taskTimeTextView: TextView
+        val btn_EditarTasca: Button
 
         init {
             // Define click listener for the ViewHolder's View.
             taskNameTextView = view.findViewById(R.id.lbl_TaskName)
             taskTimeTextView = view.findViewById(R.id.lbl_TaskTime)
+            btn_EditarTasca = view.findViewById(R.id.button_EditTask)
 
         }
     }

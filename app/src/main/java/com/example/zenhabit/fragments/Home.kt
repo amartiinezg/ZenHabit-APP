@@ -42,13 +42,19 @@ class Home : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-     binding.btDiari.setOnClickListener{
-         findNavController().navigate(R.id.action_home2_to_diaryScreen)
-     }
+        binding.btDiari.setOnClickListener {
+            findNavController().navigate(R.id.action_home2_to_diaryScreen)
+        }
+        binding.btJardi.setOnClickListener {
+            findNavController().navigate(R.id.action_home2_to_jardi)
+        }
+        binding.btTasques.setOnClickListener {
+            findNavController().navigate(R.id.action_home2_to_tasksAndHabits_Fragment3)
+        }
 
         binding.btJardi.setOnClickListener{
             findNavController().navigate(R.id.action_home2_to_jardi)
@@ -62,9 +68,6 @@ class Home : Fragment() {
 
         return view
     }
-
-
-
 
 
     companion object {
