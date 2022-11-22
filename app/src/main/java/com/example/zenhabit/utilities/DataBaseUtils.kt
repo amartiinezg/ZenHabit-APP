@@ -4,28 +4,47 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class DataBaseUtils {
-    val db = Firebase.firestore
+
 
 
     companion object {
         val db = Firebase.firestore
-       fun createTrees()
+       fun createJardi()
         {
-            val abeto = hashMapOf(
-                "name" to "Abeto",
-                "icon" to ""
-
+            val pino = hashMapOf(
+                "Name" to "Abeto",
+                "Icon" to "",
+                "Type" to "Arbol"
             )
 
             val cerezo = hashMapOf(
-                "name" to "cerezo",
-                "icon" to ""
+                "Name" to "Cerezo",
+                "Icon" to "",
+                "Type" to "Arbol"
             )
 
 
             //Sets de base de datos.
-            db.collection("Jardi").document("Arbres").set(abeto)
-            db.collection("Jardi").document("Arbres").set(cerezo)
+            db.collection("Jardi").document("Pino").set(pino)
+            db.collection("Jardi").document("Cerezo").set(cerezo)
+
+        }
+
+        fun createPerfils(){
+
+            val test1 = hashMapOf(
+                "test1" to "test1"
+
+            )
+            //Sets de base de datos.
+            db.collection("Perfils").document("Salut").set(test1)
+            db.collection("Perfils").document("Aprenentatge").set(test1)
+            db.collection("Perfils").document("Productivitat").set(test1)
+
+        }
+
+        fun createTasques(){
+
         }
     }
 }

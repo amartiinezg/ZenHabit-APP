@@ -8,8 +8,6 @@ import androidx.core.view.MotionEventCompat
 import com.example.zenhabit.R
 import com.example.zenhabit.utilities.DataBaseUtils
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 
 class IntroductionActivity_1 : AppCompatActivity() {
@@ -17,7 +15,7 @@ class IntroductionActivity_1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_introduction_1)
-        DataBaseUtils.createTrees()
+
         val user = FirebaseAuth.getInstance().currentUser
 
         if (user != null){
