@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import com.example.zenhabit.R
 import com.example.zenhabit.databinding.ActivityMenuNavigationBinding
+import com.example.zenhabit.fragments.DiaryScreen
 import com.example.zenhabit.fragments.UserSettings
 
 
@@ -29,6 +30,7 @@ class acitivity_menuNavigation : AppCompatActivity() {
             binding.homeMenu.background.setTint(resources.getColor(R.color.transparent))
             binding.settingsMenu.setEnabled(true)
             binding.settingsMenu.background.setTint(resources.getColor(R.color.transparent))
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, DiaryScreen()).commit()
         }
         binding.homeMenu.setOnClickListener{
             binding.dailyMenu.setEnabled(true)

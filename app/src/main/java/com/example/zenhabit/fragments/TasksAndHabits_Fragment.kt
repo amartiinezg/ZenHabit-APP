@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.zenhabit.R
 import com.example.zenhabit.adapters.Adapter_TaskCard
 import com.example.zenhabit.classes.TaskCard
 import com.example.zenhabit.databinding.FragmentTasksAndHabitsBinding
@@ -35,10 +38,8 @@ class TasksAndHabits_Fragment : Fragment() {
        binding = FragmentTasksAndHabitsBinding.inflate(layoutInflater)
 
         binding.floatButtonAddTask.setOnClickListener{
-
-
-                findNavController().navigate(R.id.action_tasksAndHabits_Fragment_to_editTask_Fragment)
-
+            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment("Nova Tasca")
+            NavHostFragment.findNavController(this).navigate(sendData)
         }
 
         binding.reclyclerViewTasques
