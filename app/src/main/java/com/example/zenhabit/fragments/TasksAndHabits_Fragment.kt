@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.zenhabit.R
 import com.example.zenhabit.adapters.Adapter_TaskCard
 import com.example.zenhabit.classes.TaskCard
 import com.example.zenhabit.databinding.FragmentTasksAndHabitsBinding
@@ -68,9 +66,7 @@ class TasksAndHabits_Fragment : Fragment() {
         )
 
         binding.reclyclerViewTasques.layoutManager = LinearLayoutManager(activity)
-        binding.reclyclerViewTasques.adapter = Adapter_TaskCard(data)
-
-
+        binding.reclyclerViewTasques.adapter = Adapter_TaskCard(this, data)
     }
 
 
