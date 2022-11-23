@@ -14,6 +14,7 @@ import com.example.zenhabit.databinding.ActivityRegistreBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -96,18 +97,20 @@ class RegistreActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(username, password)
             .addOnCompleteListener(this) { task ->
                 val firebaseError = task.exception.toString()
+
                 if (task.isSuccessful) {
+                    val user = FirebaseAuth.getInstance().currentUser
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
 
                     //Crear documentos de base de datos en firestore.
 
-                    val test1 = hashMapOf(
+                    val Users = hashMapOf(
                         "test" to "test",
                         "born" to 1815
                     )
 
-                    db.collection("users").document(username).set(test1)
+                    db.collection("Users").document(user!!.uid).set(Users)
 
 
 

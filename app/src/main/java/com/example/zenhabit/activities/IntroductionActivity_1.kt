@@ -6,10 +6,12 @@ import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MotionEventCompat
 import com.example.zenhabit.R
+import com.example.zenhabit.utilities.DataBaseUtils
 import com.google.firebase.auth.FirebaseAuth
 
 
 class IntroductionActivity_1 : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_introduction_1)
