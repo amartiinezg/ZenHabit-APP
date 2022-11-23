@@ -1,22 +1,16 @@
 package com.example.zenhabit.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zenhabit.R
 import com.example.zenhabit.classes.TaskCard
-import com.example.zenhabit.databinding.ActivityMenuNavigationBinding
-import com.example.zenhabit.fragments.Home
-import com.example.zenhabit.fragments.TasksAndHabits_Fragment
+import com.example.zenhabit.fragments.TasksAndHabits_FragmentDirections
 
 class Adapter_TaskCard(val Frag :Fragment,private val dataSet: Array<TaskCard>) :
     RecyclerView.Adapter<Adapter_TaskCard.TasksViewHolder>() {
@@ -39,7 +33,8 @@ class Adapter_TaskCard(val Frag :Fragment,private val dataSet: Array<TaskCard>) 
         viewHolder.taskNameTextView.text = dataSet[position].taskName
         viewHolder.taskTimeTextView.text = dataSet[position].taskTime
         viewHolder.btn_EditarTasca.setOnClickListener{
-            findNavController(Frag).navigate(R.id.action_tasksAndHabits_Fragment_to_editTask_Fragment)
+            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment(dataSet[position].taskName.toString())
+            findNavController(Frag).navigate(sendData)
         }
     }
 

@@ -5,12 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.navArgs
 import com.example.zenhabit.R
+import com.example.zenhabit.databinding.FragmentEditTaskBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private lateinit var bin: FragmentEditTaskBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -21,6 +25,7 @@ class EditTask_Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    val args: EditTask_FragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +39,16 @@ class EditTask_Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_task_, container, false)
+        bin = FragmentEditTaskBinding.inflate(layoutInflater)
+
+        return bin.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val myChannelName = args.chanelString
+
+        bin.taskIdLabelEditTask.text = myChannelName
     }
 
     companion object {
