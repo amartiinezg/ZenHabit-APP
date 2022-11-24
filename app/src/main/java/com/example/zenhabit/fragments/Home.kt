@@ -1,23 +1,16 @@
 package com.example.zenhabit.fragments
 
 import android.os.Bundle
-import android.os.FileUtils
-import android.provider.ContactsContract.Data
-import android.text.Layout.Directions
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavAction
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.zenhabit.R
-import com.example.zenhabit.classes.DataBase.UsersClass
+import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
 import com.example.zenhabit.databinding.FragmentHomeBinding
 import com.example.zenhabit.utilities.DataBaseUtils
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 
 // TODO: Rename parameter arguments, choose names that match
@@ -66,30 +59,17 @@ class Home : Fragment() {
             findNavController().navigate(R.id.action_home2_to_tasksAndHabits_Fragment3)
         }
 
+        DataBaseUtils.loadAllUserData("TS1")
 
-        loadAllUserData()
+    if (DataBaseUtils.userData!= null){
+        //binding.btJardi.setText(DataBaseUtils.userData!!.nom)
+    }
+
 
 
         return view
     }
 
-
-    fun loadAllUserData() {
-        if (DataBaseUtils.user!!.uid == null){
-            Log.d("Home.kt UID", "Es null")
-        }else{
-            Log.d("Home.kt UID", DataBaseUtils.user!!.uid)
-        }
-
-        val docRef = DataBaseUtils.db.collection("Users").document(DataBaseUtils.user!!.uid)
-        docRef.get().addOnSuccessListener { documentSnapshot ->
-
-            DataBaseUtils.userData = documentSnapshot.toObject<UsersClass>()
-            binding.btJardi.setText(DataBaseUtils.userData!!.test)
-        }
-
-
-    }
 
 
     companion object {

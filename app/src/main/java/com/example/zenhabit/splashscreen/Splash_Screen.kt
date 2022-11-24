@@ -13,8 +13,7 @@ class Splash_Screen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        //DataBaseUtils.createJardi()
-        //DataBaseUtils.createPerfils()
+
         Handler().postDelayed({
             val intent = Intent(this@Splash_Screen, IntroductionActivity_1::class.java)
             startActivity(intent)

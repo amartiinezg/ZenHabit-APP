@@ -6,6 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.zenhabit.R
+import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
+import com.example.zenhabit.databinding.FragmentEditTaskBinding
+import com.example.zenhabit.databinding.FragmentHomeBinding
+import com.example.zenhabit.utilities.DataBaseUtils
+import com.google.firebase.firestore.ktx.toObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,13 +34,18 @@ class EditTask_Fragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
+    private var _binding: FragmentEditTaskBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_task_, container, false)
+        _binding = FragmentEditTaskBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+
+
+        return view
     }
 
     companion object {
