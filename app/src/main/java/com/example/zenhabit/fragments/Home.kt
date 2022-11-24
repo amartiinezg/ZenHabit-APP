@@ -1,7 +1,10 @@
 package com.example.zenhabit.fragments
 
 import android.os.Bundle
+import android.os.FileUtils
+import android.provider.ContactsContract.Data
 import android.text.Layout.Directions
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +14,11 @@ import androidx.navigation.NavAction
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.zenhabit.R
+import com.example.zenhabit.classes.DataBase.UsersClass
 import com.example.zenhabit.databinding.FragmentHomeBinding
 import com.example.zenhabit.utilities.DataBaseUtils
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,25 +54,42 @@ class Home : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-     binding.btDiari.setOnClickListener{
-         findNavController().navigate(R.id.action_home2_to_diaryScreen)
-     }
+        binding.btDiari.setOnClickListener {
+            findNavController().navigate(R.id.action_home2_to_diaryScreen)
+        }
 
-        binding.btJardi.setOnClickListener{
+        binding.btJardi.setOnClickListener {
             findNavController().navigate(R.id.action_home2_to_jardi)
         }
 
-        binding.btTasques.setOnClickListener{
+        binding.btTasques.setOnClickListener {
             findNavController().navigate(R.id.action_home2_to_tasksAndHabits_Fragment3)
         }
 
+
+        loadAllUserData()
 
 
         return view
     }
 
 
+    fun loadAllUserData() {
+        if (DataBaseUtils.user!!.uid == null){
+            Log.d("Home.kt UID", "Es null")
+        }else{
+            Log.d("Home.kt UID", DataBaseUtils.user!!.uid)
+        }
 
+        val docRef = DataBaseUtils.db.collection("Users").document(DataBaseUtils.user!!.uid)
+        docRef.get().addOnSuccessListener { documentSnapshot ->
+
+            DataBaseUtils.userData = documentSnapshot.toObject<UsersClass>()
+            binding.btJardi.setText(DataBaseUtils.userData!!.test)
+        }
+
+
+    }
 
 
     companion object {

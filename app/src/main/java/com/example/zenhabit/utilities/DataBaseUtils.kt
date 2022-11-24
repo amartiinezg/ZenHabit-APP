@@ -1,6 +1,11 @@
 package com.example.zenhabit.utilities
 
+import com.example.zenhabit.classes.DataBase.UsersClass
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class DataBaseUtils {
@@ -8,43 +13,11 @@ class DataBaseUtils {
 
 
     companion object {
-        val db = Firebase.firestore
-       fun createJardi()
-        {
-            val pino = hashMapOf(
-                "Name" to "Abeto",
-                "Icon" to "",
-                "Type" to "Arbol"
-            )
-
-            val cerezo = hashMapOf(
-                "Name" to "Cerezo",
-                "Icon" to "",
-                "Type" to "Arbol"
-            )
+        val db = FirebaseFirestore.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser
+        var userData : UsersClass? = null;
 
 
-            //Sets de base de datos.
-            db.collection("Jardi").document("Pino").set(pino)
-            db.collection("Jardi").document("Cerezo").set(cerezo)
 
-        }
-
-        fun createPerfils(){
-
-            val test1 = hashMapOf(
-                "test1" to "test1"
-
-            )
-            //Sets de base de datos.
-            db.collection("Perfils").document("Salut").set(test1)
-            db.collection("Perfils").document("Aprenentatge").set(test1)
-            db.collection("Perfils").document("Productivitat").set(test1)
-
-        }
-
-        fun createTasques(){
-
-        }
     }
 }
