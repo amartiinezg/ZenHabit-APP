@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.example.zenhabit.R
 import com.example.zenhabit.fragments.Home
 import com.example.zenhabit.fragments.UserSettings
@@ -46,7 +47,10 @@ class acitivity_menuNavigation : AppCompatActivity() {
 
             settingBtn.setEnabled(true)
             settingBtn.background.setTint(resources.getColor(R.color.transparent))
+
             navController.navigate(R.id.nav_graph)
+
+
         }
         settingBtn.setOnClickListener{
             dailyBtn.setEnabled(true)
@@ -57,6 +61,7 @@ class acitivity_menuNavigation : AppCompatActivity() {
             settingBtn.setEnabled(false)
             settingBtn.background.setTint(resources.getColor(R.color.green))
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, UserSettings()).commit()
+
         }
     }
 }

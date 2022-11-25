@@ -59,11 +59,8 @@ class Home : Fragment() {
             findNavController().navigate(R.id.action_home2_to_tasksAndHabits_Fragment3)
         }
 
-        DataBaseUtils.loadAllUserData("TS1")
 
-    if (DataBaseUtils.userData!= null){
-        //binding.btJardi.setText(DataBaseUtils.userData!!.nom)
-    }
+
 
 
 

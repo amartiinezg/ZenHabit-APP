@@ -15,7 +15,7 @@ class DataBaseUtils() {
 
          fun loadAllUserData(taskID: String){
              if (taskID.contains("TS")){
-                 val docRef = DataBaseUtils.db.collection("/Perfils/Salut/Tasques/").document(taskID)
+                 val docRef = db.collection("/Perfils/Salut/Tasques/").document(taskID)
                  docRef.get().addOnSuccessListener { documentSnapshot ->
                      userData = documentSnapshot.toObject<UsersClass>()
                  }

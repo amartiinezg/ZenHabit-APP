@@ -42,8 +42,18 @@ class EditTask_Fragment : Fragment() {
     ): View? {
         _binding = FragmentEditTaskBinding.inflate(inflater, container, false)
         val view = binding.root
+        var descripcioEditText = binding.editTextDescriptionName.text.toString()
 
 
+        binding.btnSaveEditTask.setOnClickListener{
+            DataBaseUtils.loadAllUserData(descripcioEditText)
+            if (DataBaseUtils.userData!= null){
+
+                DataBaseUtils.db.collection("Users").document(DataBaseUtils.user!!.uid).collection("Tasques").document("Salut")
+                    .collection("TS1").document("TS1").set(DataBaseUtils.userData!!)
+
+            }
+        }
 
         return view
     }
