@@ -48,8 +48,8 @@
         android:label="fragment_edit_task_"
         tools:layout="@layout/fragment_edit_task_" >
         <argument
-            android:name="chanel_string"
-            app:argType="string" />
+            android:name="tasca"
+            app:argType="com.example.zenhabit.classes.TaskCard" />
     </fragment>
 </navigation>
 

@@ -75,4 +75,10 @@
     <string name="canviar_nom_d_usuari">Canviar nom d\'usuari</string>
     <string name="canviar_contrasenya">Canviar contrasenya</string>
     <string name="canviar_email">Canviar email</string>
+    <string name="spinner_titulo">Elige la categoria</string>
+    <string-array name="categoria">
+        <item>Aprenentatge</item>
+        <item>Productivitat</item>
+        <item>Salut</item>
+    </string-array>
 </resources>

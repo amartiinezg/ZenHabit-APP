@@ -21,6 +21,7 @@ class Adapter_TaskCard(val Frag :Fragment,private val dataSet: Array<TaskCard>) 
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.card_tasques, viewGroup, false)
 
+
         return TasksViewHolder(view)
     }
 
@@ -30,10 +31,10 @@ class Adapter_TaskCard(val Frag :Fragment,private val dataSet: Array<TaskCard>) 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
 
-        viewHolder.taskNameTextView.text = dataSet[position].taskName
-        viewHolder.taskTimeTextView.text = dataSet[position].taskTime
+        viewHolder.taskNameTextView.text = dataSet[position].tascaNom
+        viewHolder.taskTimeTextView.text = dataSet[position].tascaTemps
         viewHolder.btn_EditarTasca.setOnClickListener{
-            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment(dataSet[position].taskName.toString())
+            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment(dataSet[position])
             findNavController(Frag).navigate(sendData)
         }
     }

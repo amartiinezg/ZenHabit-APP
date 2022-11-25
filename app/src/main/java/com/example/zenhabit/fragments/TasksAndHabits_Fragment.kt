@@ -38,7 +38,7 @@ class TasksAndHabits_Fragment : Fragment() {
        binding = FragmentTasksAndHabitsBinding.inflate(layoutInflater)
 
         binding.floatButtonAddTask.setOnClickListener{
-            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment("Nova Tasca")
+            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment(TaskCard("Escriu el nom...", "", "", ""))
             NavHostFragment.findNavController(this).navigate(sendData)
         }
 
@@ -51,17 +51,23 @@ class TasksAndHabits_Fragment : Fragment() {
         val data = arrayOf(
             TaskCard(
                 "Menjar Avena",
+                "",
+                "Salut",
                 "10:00"
 
             ),
             TaskCard(
                 "Planxar la roba",
-                "13:30"
+                "",
+                "Productivitat",
+                "13:30",
 
             ),
             TaskCard(
-                "Jugar al PayDay 2",
-                "00:10"
+                "Fer esport 1 hora",
+                "Anar al gimnàs, anar a correr, etc...",
+                "Salut",
+                "17:00"
 
             )
         )

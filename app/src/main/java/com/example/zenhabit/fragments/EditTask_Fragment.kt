@@ -1,14 +1,20 @@
 package com.example.zenhabit.fragments
 
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import com.example.zenhabit.R
 import com.example.zenhabit.databinding.FragmentEditTaskBinding
+import java.util.*
+import kotlin.time.Duration.Companion.seconds
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,14 +47,41 @@ class EditTask_Fragment : Fragment() {
     ): View? {
         bin = FragmentEditTaskBinding.inflate(layoutInflater)
 
+        val coloredSpinner :Spinner = bin.slctorCategoryTask
+        var adapter :ArrayAdapter<*> = ArrayAdapter.createFromResource(activity!!,
+            R.array.categoria,
+            R.layout.spinner_custom_layout)
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout)
+        coloredSpinner.adapter  = adapter
+
         return bin.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val myChannelName = args.chanelString
+        val tasca = args.tasca
 
-        bin.taskIdLabelEditTask.text = myChannelName
+        bin.taskIdLabelEditTask.setText(tasca.tascaNom)
+        var categoria = tasca.tascaCategoria
+        if(!tasca.tascaDescripcio.isNullOrBlank()){
+            bin.editTextDescriptionName.setText(tasca.tascaDescripcio)
+        }
+
+        val cal = Calendar.getInstance()
+
+        when (categoria) {
+            "Aprenentatge" -> bin.slctorCategoryTask.setSelection(0)
+            "Productivitat" -> bin.slctorCategoryTask.setSelection(1)
+            "Salut" -> bin.slctorCategoryTask.setSelection(2)
+        }
+        bin.lblTimerTask.setText(tasca.tascaTemps)
+
+        val listenerHora = TimePickerDialog.OnTimeSetListener { view, hora, minutos ->
+            bin.lblTimerTask.setText("$hora:${minutos}")
+        }
+        bin.iconDate.setOnClickListener{
+            TimePickerDialog(activity!!, listenerHora, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+        }
     }
 
     companion object {
