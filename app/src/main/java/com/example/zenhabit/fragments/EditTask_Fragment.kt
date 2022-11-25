@@ -82,6 +82,13 @@ class EditTask_Fragment : Fragment() {
         bin.iconDate.setOnClickListener{
             TimePickerDialog(activity!!, listenerHora, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
         }
+
+        bin.btnSaveEditTask.setOnClickListener{
+            tasca.tascaNom = bin.taskIdLabelEditTask.text.toString()
+            tasca.tascaDescripcio = bin.editTextDescriptionName.text.toString()
+            tasca.tascaCategoria = bin.slctorCategoryTask.selectedItemPosition.toString()
+            tasca.tascaTemps = bin.lblTimerTask.text.toString()
+        }
     }
 
     companion object {

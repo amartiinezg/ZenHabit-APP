@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.zenhabit.R
+import com.example.zenhabit.adapters.Adapter_ChallengeCard
 import com.example.zenhabit.adapters.Adapter_TaskCard
+import com.example.zenhabit.classes.ChallengeCard
 import com.example.zenhabit.classes.TaskCard
 import com.example.zenhabit.databinding.FragmentTasksAndHabitsBinding
 
@@ -48,32 +48,48 @@ class TasksAndHabits_Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data = arrayOf(
+        val challenges = arrayOf(
+            ChallengeCard(
+                "Anar a correr 5km",
+                "",
+                true
+            ),
+            ChallengeCard(
+                "Màxim 2 hores al mòvil",
+                "",
+                false
+            ),
+            ChallengeCard(
+                "Fer 2 tasques",
+                "",
+                true
+            )
+        )
+        val tasks = arrayOf(
             TaskCard(
                 "Menjar Avena",
                 "",
                 "Salut",
                 "10:00"
-
             ),
             TaskCard(
                 "Planxar la roba",
                 "",
                 "Productivitat",
                 "13:30",
-
             ),
             TaskCard(
                 "Fer esport 1 hora",
                 "Anar al gimnàs, anar a correr, etc...",
                 "Salut",
                 "17:00"
-
             )
         )
+        binding.reclyclerViewChallenges.layoutManager = LinearLayoutManager(activity)
+        binding.reclyclerViewChallenges.adapter = Adapter_ChallengeCard(this, challenges)
 
         binding.reclyclerViewTasques.layoutManager = LinearLayoutManager(activity)
-        binding.reclyclerViewTasques.adapter = Adapter_TaskCard(this, data)
+        binding.reclyclerViewTasques.adapter = Adapter_TaskCard(this, tasks)
     }
 
 
