@@ -42,17 +42,14 @@ class EditTask_Fragment : Fragment() {
     ): View? {
         _binding = FragmentEditTaskBinding.inflate(inflater, container, false)
         val view = binding.root
-        var descripcioEditText = binding.editTextDescriptionName.text.toString()
+
 
 
         binding.btnSaveEditTask.setOnClickListener{
-            DataBaseUtils.loadAllUserData(descripcioEditText)
-            if (DataBaseUtils.userData!= null){
+            var descripcioEditText = binding.editTextDescriptionName.text.toString()
+            var date = binding.editTextDate.text.toString()
+            DataBaseUtils.loadAllUserData(descripcioEditText, date)
 
-                DataBaseUtils.db.collection("Users").document(DataBaseUtils.user!!.uid).collection("Tasques").document("Salut")
-                    .collection("TS1").document("TS1").set(DataBaseUtils.userData!!)
-
-            }
         }
 
         return view

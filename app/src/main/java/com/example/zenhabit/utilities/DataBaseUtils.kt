@@ -11,16 +11,30 @@ class DataBaseUtils() {
     companion object {
         val db = FirebaseFirestore.getInstance()
         val user = FirebaseAuth.getInstance().currentUser
-        var userData: UsersClass? = null;
+        var userData: UsersClass? = null
 
-         fun loadAllUserData(taskID: String){
-             if (taskID.contains("TS")){
-                 val docRef = db.collection("/Perfils/Salut/Tasques/").document(taskID)
-                 docRef.get().addOnSuccessListener { documentSnapshot ->
-                     userData = documentSnapshot.toObject<UsersClass>()
-                 }
-             }
-         }
+
+        fun loadAllUserData(taskID: String, data : String) {
+
+
+            if (taskID.contains("TS")) {
+                //GET
+                val docRef = db.collection("/Perfils/Salut/Tasques/").document(taskID)
+                docRef.get().addOnSuccessListener { documentSnapshot ->
+                    userData = documentSnapshot.toObject<UsersClass>()
+
+                    //SET
+                    if (userData != null) {
+                        userData!!.data = data
+
+                        db.collection("Users").document(user!!.uid).collection("Tasques")
+                            .document("Salut")
+                            .collection("TS1").document("TS1").set(userData!!)
+
+                    }
+                }
+            }
+        }
 
     }
 
