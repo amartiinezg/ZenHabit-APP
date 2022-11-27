@@ -5,12 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.zenhabit.R
-import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
 import com.example.zenhabit.databinding.FragmentEditTaskBinding
-import com.example.zenhabit.databinding.FragmentHomeBinding
 import com.example.zenhabit.utilities.DataBaseUtils
-import com.google.firebase.firestore.ktx.toObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,7 +44,7 @@ class EditTask_Fragment : Fragment() {
         binding.btnSaveEditTask.setOnClickListener{
             var descripcioEditText = binding.editTextDescriptionName.text.toString()
             var date = binding.editTextDate.text.toString()
-            DataBaseUtils.loadAllUserData(descripcioEditText, date)
+            DataBaseUtils.loadNewUserTask(descripcioEditText, date)
 
         }
 
