@@ -78,6 +78,12 @@ class UserSettings : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        var view : View? = null
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

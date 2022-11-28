@@ -22,16 +22,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/task_idLabel_EditTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
+                android:inputType="text"
+                android:background="@color/transparent"
                 android:text="Tasca"
                 android:textColor="@color/white"
                 android:textSize="38dp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -45,51 +48,50 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_Task"
             tools:layout_editor_absoluteX="0dp">
 
-            <ImageView
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/icon_Date"
-                android:layout_width="0dp"
-                android:layout_height="38dp"
-                android:layout_marginLeft="20dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/temporizator_icon" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="91dp"
-                android:layout_height="27dp"
-                android:layout_marginLeft="10dp"
-                android:text="Data límit"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:elevation="4dp"
+                android:tint="@color/white"
+                app:fabCustomSize="45dp"
+                app:srcCompat="@android:drawable/ic_menu_recent_history" />
 
             <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="45dp"
+                android:layout_height="27dp"
                 android:layout_weight="1" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextDate"
+            <TextView
+                android:id="@+id/lbl_TimerTask"
                 android:layout_width="125dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
+                android:background="@color/teal_200"
                 android:ems="10"
-                android:hint="Data"
+                android:hint="00:00"
+                android:textSize="40dp"
+                android:textColor="@color/white"
+                android:gravity="center"
                 android:inputType="date"
                 android:minHeight="48dp"
-                android:textColorHint="@android:color/darker_gray" />
+                android:textColorHint="@android:color/white" />
 
         </LinearLayout>
 
         <EditText
             android:id="@+id/editText_DescriptionName"
-            android:layout_width="wrap_content"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginTop="28dp"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/description_task_optional"
+            android:hint="@string/description_task_optional"
+            android:textColorHint="@color/white"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,6 +119,7 @@
             android:backgroundTint="@color/primary"
             android:backgroundTintMode="add"
             android:contentDescription="@string/tasques"
+            android:entries="@array/categoria"
             android:spinnerMode="dropdown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText_DescriptionName" />
@@ -126,27 +129,29 @@
             android:layout_width="87dp"
             android:layout_height="93dp"
             android:layout_marginTop="48dp"
-            android:layout_marginEnd="80dp"
+            android:layout_marginEnd="100dp"
             android:backgroundTint="#33FF565E"
             android:gravity="bottom|center"
             android:paddingBottom="10dp"
+            android:text="@string/habit_label"
+            android:textSize="12dp"
             app:icon="@android:drawable/ic_menu_my_calendar"
             app:iconGravity="top"
             app:iconSize="40dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/slctor_CategoryTask"
-            tools:text="@string/habit_label" />
+            app:layout_constraintTop_toBottomOf="@+id/slctor_CategoryTask" />
 
         <Button
             android:id="@+id/btn_Task"
             android:layout_width="87dp"
             android:layout_height="93dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="48dp"
             android:backgroundTint="#FF565E"
             android:gravity="bottom|center"
             android:paddingBottom="10dp"
             android:text="@string/task_label"
+            android:textSize="12dp"
             app:icon="@android:drawable/ic_menu_agenda"
             app:iconGravity="top"
             app:iconSize="40dp"

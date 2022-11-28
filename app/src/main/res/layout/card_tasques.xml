@@ -31,13 +31,6 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
 
-        <ImageView
-            android:layout_width="5dp"
-            android:layout_height="5dp"
-            android:layout_marginRight="15sp"
-            android:layout_weight="0"
-            android:src="@drawable/rectangle_red" />
-
         <Space
             android:layout_width="61dp"
             android:layout_height="13dp"

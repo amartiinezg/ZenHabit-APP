@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.zenhabit.adapters.Adapter_ChallengeCard
 import com.example.zenhabit.adapters.Adapter_TaskCard
+import com.example.zenhabit.classes.ChallengeCard
 import com.example.zenhabit.classes.TaskCard
 import com.example.zenhabit.databinding.FragmentTasksAndHabitsBinding
 
@@ -35,10 +38,8 @@ class TasksAndHabits_Fragment : Fragment() {
        binding = FragmentTasksAndHabitsBinding.inflate(layoutInflater)
 
         binding.floatButtonAddTask.setOnClickListener{
-
-
-                findNavController().navigate(R.id.action_tasksAndHabits_Fragment_to_editTask_Fragment)
-
+            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment(TaskCard("Escriu el nom...", "", "", ""))
+            NavHostFragment.findNavController(this).navigate(sendData)
         }
 
         binding.reclyclerViewTasques
@@ -47,26 +48,48 @@ class TasksAndHabits_Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data = arrayOf(
+        val challenges = arrayOf(
+            ChallengeCard(
+                "Anar a correr 5km",
+                "",
+                true
+            ),
+            ChallengeCard(
+                "Màxim 2 hores al mòvil",
+                "",
+                false
+            ),
+            ChallengeCard(
+                "Fer 2 tasques",
+                "",
+                true
+            )
+        )
+        val tasks = arrayOf(
             TaskCard(
                 "Menjar Avena",
+                "",
+                "Salut",
                 "10:00"
-
             ),
             TaskCard(
                 "Planxar la roba",
-                "13:30"
-
+                "",
+                "Productivitat",
+                "13:30",
             ),
             TaskCard(
-                "Jugar al PayDay 2",
-                "00:10"
-
+                "Fer esport 1 hora",
+                "Anar al gimnàs, anar a correr, etc...",
+                "Salut",
+                "17:00"
             )
         )
+        binding.reclyclerViewChallenges.layoutManager = LinearLayoutManager(activity)
+        binding.reclyclerViewChallenges.adapter = Adapter_ChallengeCard(this, challenges)
 
         binding.reclyclerViewTasques.layoutManager = LinearLayoutManager(activity)
-        binding.reclyclerViewTasques.adapter = Adapter_TaskCard(this, data)
+        binding.reclyclerViewTasques.adapter = Adapter_TaskCard(this, tasks)
     }
 
 
