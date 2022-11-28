@@ -44,7 +44,9 @@ class EditTask_Fragment : Fragment() {
         binding.btnSaveEditTask.setOnClickListener{
             var descripcioEditText = binding.editTextDescriptionName.text.toString()
             var date = binding.editTextDate.text.toString()
-            DataBaseUtils.loadNewUserTask(descripcioEditText, date)
+            var nom = binding.editTextDescriptionName.text.toString()
+            var taskID = "PERSacarAlPerro"
+            DataBaseUtils.loadNewUserTask(taskID, date, nom, descripcioEditText)
 
         }
 

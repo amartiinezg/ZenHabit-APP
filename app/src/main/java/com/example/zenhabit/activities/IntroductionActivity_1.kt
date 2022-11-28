@@ -18,13 +18,10 @@ class IntroductionActivity_1 : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
 
         if (user != null) {
-            if (user.email.equals("admin@gmail.com")) {
-                val intent = Intent(this, DataBaseTesting::class.java)
-                startActivity(intent)
-            } else {
+
                 val intent = Intent(this, acitivity_menuNavigation::class.java)
                 startActivity(intent)
-            }
+
 
         }
 

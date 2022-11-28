@@ -17,20 +17,44 @@ class DataBaseUtils {
         var userData: UsersClass? = null
 
 
-        fun loadNewUserTask(taskID: String, data: String) {
+        fun loadNewUserTask(taskID: String, data: String, nom : String, descripcio :String) {
 
 
-            //GET
-            val docRef = checkTaskProfile(taskID)
-            docRef?.get()?.addOnSuccessListener { documentSnapshot ->
-                userData = documentSnapshot.toObject<UsersClass>()
+            //MIRAR SI ES UNA TASCA O UN "CHALLENGE"
+            if (!taskID.contains("PER")) {
+                val docRef = checkTaskProfile(taskID)
+                docRef?.get()?.addOnSuccessListener { documentSnapshot ->
+                    userData = documentSnapshot.toObject<UsersClass>()
 
-                //SET
-                if (userData != null) {
-                    userData!!.data = data
-                    val documentPath = checkUserTaskProfile(taskID)
+                    //SET
+                    if (userData != null) {
+                        userData!!.data = data
+                        val documentPath = checkUserTaskProfile(taskID)
 
-                    documentPath?.collection(taskID)?.document(taskID)?.set(userData!!)
+                        documentPath?.collection(taskID)?.document(taskID)?.set(userData!!)
+
+
+                    }
+                }
+
+
+            }else if (taskID.contains("PER")){
+                val docRef = db.collection("Users").document(user!!.uid).collection("Tasques Persona").document()
+                docRef?.get()?.addOnSuccessListener { documentSnapshot ->
+                    userData = documentSnapshot.toObject<UsersClass>()
+
+                    //SET
+
+                          val hashMapDatos =  hashMapOf(
+                              "nom" to nom,
+                              "descripcio" to descripcio,
+                              "data" to data
+
+                          )
+
+                        db.collection("Users").document(user!!.uid).collection("Tasques").
+                        document("Personalitzades").collection(taskID).document(taskID).set(hashMapDatos)
+
 
 
                 }
