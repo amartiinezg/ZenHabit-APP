@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import com.example.zenhabit.R
+import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
 import com.example.zenhabit.databinding.FragmentEditTaskBinding
+import com.example.zenhabit.utilities.DataBaseUtils
 import java.util.*
 import kotlin.time.Duration.Companion.seconds
 
@@ -46,16 +48,19 @@ class EditTask_Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         bin = FragmentEditTaskBinding.inflate(layoutInflater)
-
-        val coloredSpinner :Spinner = bin.slctorCategoryTask
-        var adapter :ArrayAdapter<*> = ArrayAdapter.createFromResource(activity!!,
+        var initializeUserDataList : List<UsersClass>
+        val coloredSpinner: Spinner = bin.slctorCategoryTask
+        var adapter: ArrayAdapter<*> = ArrayAdapter.createFromResource(
+            activity!!,
             R.array.categoria,
-            R.layout.spinner_custom_layout)
+            R.layout.spinner_custom_layout
+        )
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout)
-        coloredSpinner.adapter  = adapter
+        coloredSpinner.adapter = adapter
 
         return bin.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -63,7 +68,7 @@ class EditTask_Fragment : Fragment() {
 
         bin.taskIdLabelEditTask.setText(tasca.tascaNom)
         var categoria = tasca.tascaCategoria
-        if(!tasca.tascaDescripcio.isNullOrBlank()){
+        if (!tasca.tascaDescripcio.isNullOrBlank()) {
             bin.editTextDescriptionName.setText(tasca.tascaDescripcio)
         }
 
@@ -79,15 +84,30 @@ class EditTask_Fragment : Fragment() {
         val listenerHora = TimePickerDialog.OnTimeSetListener { view, hora, minutos ->
             bin.lblTimerTask.setText("$hora:${minutos}")
         }
-        bin.iconDate.setOnClickListener{
-            TimePickerDialog(activity!!, listenerHora, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+        bin.iconDate.setOnClickListener {
+            TimePickerDialog(
+                activity!!,
+                listenerHora,
+                cal.get(Calendar.HOUR_OF_DAY),
+                cal.get(Calendar.MINUTE),
+                true
+            ).show()
         }
 
-        bin.btnSaveEditTask.setOnClickListener{
-            tasca.tascaNom = bin.taskIdLabelEditTask.text.toString()
-            tasca.tascaDescripcio = bin.editTextDescriptionName.text.toString()
-            tasca.tascaCategoria = bin.slctorCategoryTask.selectedItemPosition.toString()
-            tasca.tascaTemps = bin.lblTimerTask.text.toString()
+        bin.btnSaveEditTask.setOnClickListener {
+
+            var tascaNom = bin.taskIdLabelEditTask.text.toString()
+            var tascaDescripcio = bin.editTextDescriptionName.text.toString()
+            var tascaCategoria = bin.slctorCategoryTask.selectedItemPosition.toString()
+            var tascaTemps = bin.lblTimerTask.text.toString()
+
+            DataBaseUtils.loadNewUserTask(
+                true,
+                tascaTemps,
+                tascaNom,
+                tascaDescripcio,
+                tascaCategoria
+            )
         }
     }
 

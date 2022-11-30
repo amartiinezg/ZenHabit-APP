@@ -17,66 +17,72 @@ class DataBaseUtils {
         var userData: UsersClass? = null
 
 
-        fun loadNewUserTask(taskID: String, data: String, nom : String, descripcio :String) {
+        fun loadNewUserTask(
+            Personalitzada: Boolean,
+            data: String,
+            nom: String,
+            descripcio: String,
+            categoria: String
+        ) {
 
 
             //MIRAR SI ES UNA TASCA O UN "CHALLENGE"
-            if (!taskID.contains("PER")) {
-                val docRef = checkTaskProfile(taskID)
+            if (!Personalitzada) {
+                val docRef = checkTaskProfile(categoria)
                 docRef?.get()?.addOnSuccessListener { documentSnapshot ->
                     userData = documentSnapshot.toObject<UsersClass>()
 
                     //SET
                     if (userData != null) {
                         userData!!.data = data
-                        val documentPath = checkUserTaskProfile(taskID)
+                        val documentPath = checkUserTaskProfile(categoria)
 
-                        documentPath?.collection(taskID)?.document(taskID)?.set(userData!!)
+                        documentPath?.collection(categoria)?.document(categoria)?.set(userData!!)
 
 
                     }
                 }
 
 
-            }else if (taskID.contains("PER")){
-                val docRef = db.collection("Users").document(user!!.uid).collection("Tasques Persona").document()
-                docRef?.get()?.addOnSuccessListener { documentSnapshot ->
-                    userData = documentSnapshot.toObject<UsersClass>()
+            } else if (Personalitzada) {
+
+
+
 
                     //SET
 
-                          val hashMapDatos =  hashMapOf(
-                              "nom" to nom,
-                              "descripcio" to descripcio,
-                              "data" to data
+                    val hashMapDatos = hashMapOf(
+                        "nom" to nom,
+                        "descripcio" to descripcio,
+                        "data" to data
 
-                          )
+                    )
 
-                        db.collection("Users").document(user!!.uid).collection("Tasques").
-                        document("Personalitzades").collection(taskID).document(taskID).set(hashMapDatos)
-
+                    db.collection("Users").document(user!!.uid).collection("Tasques")
+                        .document("Personalitzades").collection(categoria).document(categoria)
+                        .set(hashMapDatos)
 
 
                 }
             }
-        }
 
 
-        fun checkUserTaskProfile(taskID: String): DocumentReference? {
+
+        fun checkUserTaskProfile(categoria: String): DocumentReference? {
             var documentReference: DocumentReference? = null
-            if (taskID.contains("TS")) {
-                documentReference =
-                    db.collection("Users").document(user!!.uid).collection("Tasques")
+
+            when (categoria) {
+                "Salut" -> documentReference =
+                    db.collection("Users").document(user!!.uid).collection("Challenges")
                         .document("Salut")
-            } else if (taskID.contains("TP")) {
-                documentReference =
-                    db.collection("Users").document(user!!.uid).collection("Tasques")
+                "Productivitat"-> documentReference =
+                    db.collection("Users").document(user!!.uid).collection("Challenges")
                         .document("Productivitat")
-            } else if (taskID.contains("TA")) {
-                documentReference =
-                    db.collection("Users").document(user!!.uid).collection("Tasques")
+                "Aprenentatge"->documentReference =
+                    db.collection("Users").document(user!!.uid).collection("Challenges")
                         .document("Aprenentatge")
             }
+
             return documentReference
         }
 
@@ -90,6 +96,10 @@ class DataBaseUtils {
                 documentReference = db.collection("/Perfils/Aprenentatge/Tasques").document(taskID)
             }
             return documentReference
+        }
+
+        fun getAllUserData(){
+
         }
 
     }
