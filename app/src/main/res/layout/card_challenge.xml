@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/background"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="14dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="30sp"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:id="@+id/lbl_Challenge"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/llegir_10_minuts"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/square_red1"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginRight="15sp"
+            android:layout_weight="0"
+            android:src="@drawable/rectangle_red"
+            android:contentDescription="@string/todo" />
+
+        <TextView
+            android:id="@+id/lbl_lookEarn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:textSize="12dp"
+            android:text="@string/veure_recompensa"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/check_challenge"
+            android:layout_width="64dp"
+            android:layout_height="59dp"
+            android:layout_weight="0" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

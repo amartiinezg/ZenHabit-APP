@@ -1,17 +1,18 @@
 package com.example.zenhabit.fragments
 
 import android.os.Bundle
-import android.util.Log
+import android.text.Layout.Directions
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavAction
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.zenhabit.R
-import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
 import com.example.zenhabit.databinding.FragmentHomeBinding
 import com.example.zenhabit.utilities.DataBaseUtils
-import com.google.firebase.firestore.ktx.toObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,31 +43,32 @@ class Home : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
         binding.btDiari.setOnClickListener {
             findNavController().navigate(R.id.action_home2_to_diaryScreen)
         }
-
         binding.btJardi.setOnClickListener {
             findNavController().navigate(R.id.action_home2_to_jardi)
         }
-
         binding.btTasques.setOnClickListener {
+            findNavController().navigate(R.id.action_home2_to_tasksAndHabits_Fragment3)
+        }
+
+        binding.btJardi.setOnClickListener{
+            findNavController().navigate(R.id.action_home2_to_jardi)
+        }
+
+        binding.btTasques.setOnClickListener{
             findNavController().navigate(R.id.action_home2_to_tasksAndHabits_Fragment3)
         }
 
 
 
-
-
-
         return view
     }
-
 
 
     companion object {

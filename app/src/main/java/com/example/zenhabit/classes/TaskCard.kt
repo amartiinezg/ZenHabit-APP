@@ -1,8 +1,10 @@
 package com.example.zenhabit.classes
 
 class TaskCard(
-    var taskName: String?,
-    var taskTime: String?
-) {
-
+    var tascaNom: String?,
+    var tascaDescripcio: String?,
+    var tascaCategoria: String?,
+    var tascaTemps: String?
+):java.io.Serializable
+{
 }
