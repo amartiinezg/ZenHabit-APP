@@ -2,6 +2,7 @@ package com.example.zenhabit.fragments
 
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -98,8 +99,11 @@ class EditTask_Fragment : Fragment() {
 
             var tascaNom = bin.taskIdLabelEditTask.text.toString()
             var tascaDescripcio = bin.editTextDescriptionName.text.toString()
-            var tascaCategoria = bin.slctorCategoryTask.selectedItemPosition.toString()
+            var tascaCategoria = getResources().getStringArray(R.array.categoria)[bin.slctorCategoryTask.selectedItemPosition].toString();
             var tascaTemps = bin.lblTimerTask.text.toString()
+
+
+            Log.d("EditTask_Fragment", tascaCategoria.toString())
 
             DataBaseUtils.loadNewUserTask(
                 true,

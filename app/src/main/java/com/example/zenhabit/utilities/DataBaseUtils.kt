@@ -59,7 +59,7 @@ class DataBaseUtils {
                     )
 
                     db.collection("Users").document(user!!.uid).collection("Tasques")
-                        .document("Personalitzades").collection(categoria).document(categoria)
+                        .document("Personalitzades").collection(categoria).document(nom)
                         .set(hashMapDatos)
 
 
