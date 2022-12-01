@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
@@ -100,6 +101,7 @@ class EditTask_Fragment : Fragment() {
             var tascaNom = bin.taskIdLabelEditTask.text.toString()
             var tascaDescripcio = bin.editTextDescriptionName.text.toString()
             var tascaCategoria = getResources().getStringArray(R.array.categoria)[bin.slctorCategoryTask.selectedItemPosition].toString();
+            var indexTascaCategoria =bin.slctorCategoryTask.selectedItemPosition
             var tascaTemps = bin.lblTimerTask.text.toString()
 
 
@@ -110,7 +112,8 @@ class EditTask_Fragment : Fragment() {
                 tascaTemps,
                 tascaNom,
                 tascaDescripcio,
-                tascaCategoria
+                tascaCategoria,
+                indexTascaCategoria
             )
         }
     }

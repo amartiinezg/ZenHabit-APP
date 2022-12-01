@@ -22,7 +22,8 @@ class DataBaseUtils {
             data: String,
             nom: String,
             descripcio: String,
-            categoria: String
+            categoria: String,
+            indexCategoria : Int
         ) {
 
 
@@ -35,7 +36,8 @@ class DataBaseUtils {
                     //SET
                     if (userData != null) {
                         userData!!.data = data
-                        val documentPath = checkUserTaskProfile(categoria)
+                        val documentPath = db.collection("Users").document(user!!.uid)
+                            .collection("Challenges").document(/*Introducir nombre de challenge*/)
 
                         documentPath?.collection(categoria)?.document(categoria)?.set(userData!!)
 
@@ -54,13 +56,13 @@ class DataBaseUtils {
                     val hashMapDatos = hashMapOf(
                         "nom" to nom,
                         "descripcio" to descripcio,
-                        "data" to data
+                        "data" to data,
+                        "categoria" to indexCategoria
 
                     )
 
                     db.collection("Users").document(user!!.uid).collection("Tasques")
-                        .document("Personalitzades").collection(categoria).document(nom)
-                        .set(hashMapDatos)
+                        .document(nom).set(hashMapDatos)
 
 
                 }
@@ -68,23 +70,7 @@ class DataBaseUtils {
 
 
 
-        fun checkUserTaskProfile(categoria: String): DocumentReference? {
-            var documentReference: DocumentReference? = null
 
-            when (categoria) {
-                "Salut" -> documentReference =
-                    db.collection("Users").document(user!!.uid).collection("Challenges")
-                        .document("Salut")
-                "Productivitat"-> documentReference =
-                    db.collection("Users").document(user!!.uid).collection("Challenges")
-                        .document("Productivitat")
-                "Aprenentatge"->documentReference =
-                    db.collection("Users").document(user!!.uid).collection("Challenges")
-                        .document("Aprenentatge")
-            }
-
-            return documentReference
-        }
 
         fun checkTaskProfile(taskID: String): DocumentReference? {
             var documentReference: DocumentReference? = null
