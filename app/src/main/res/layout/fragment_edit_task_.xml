@@ -31,6 +31,7 @@
                 android:inputType="text"
                 android:background="@color/transparent"
                 android:text="Tasca"
+                android:hint="Escriu el nom..."
                 android:textColor="@color/white"
                 android:textSize="38dp"
                 android:textStyle="bold" />

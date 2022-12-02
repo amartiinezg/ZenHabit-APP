@@ -12,7 +12,7 @@ import com.example.zenhabit.R
 import com.example.zenhabit.classes.TaskCard
 import com.example.zenhabit.fragments.TasksAndHabits_FragmentDirections
 
-class Adapter_TaskCard(val Frag :Fragment,private val dataSet: Array<TaskCard>) :
+class Adapter_TaskCard(val Frag :Fragment,private val dataSet: ArrayList<TaskCard>) :
     RecyclerView.Adapter<Adapter_TaskCard.TasksViewHolder>() {
 
     // Create new views (invoked by the layout manager)
@@ -34,6 +34,7 @@ class Adapter_TaskCard(val Frag :Fragment,private val dataSet: Array<TaskCard>) 
         viewHolder.taskNameTextView.text = dataSet[position].tascaNom
         viewHolder.taskTimeTextView.text = dataSet[position].tascaTemps
         viewHolder.btn_EditarTasca.setOnClickListener{
+            dataSet[position].edicio = true
             val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment(dataSet[position])
             findNavController(Frag).navigate(sendData)
         }

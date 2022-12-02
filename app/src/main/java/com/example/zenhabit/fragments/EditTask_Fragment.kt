@@ -17,6 +17,8 @@ import com.example.zenhabit.R
 import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
 import com.example.zenhabit.databinding.FragmentEditTaskBinding
 import com.example.zenhabit.utilities.DataBaseUtils
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.time.Duration.Companion.seconds
 
@@ -107,14 +109,19 @@ class EditTask_Fragment : Fragment() {
 
             Log.d("EditTask_Fragment", tascaCategoria.toString())
 
-            DataBaseUtils.loadNewUserTask(
-                true,
-                tascaTemps,
-                tascaNom,
-                tascaDescripcio,
-                tascaCategoria,
-                indexTascaCategoria
-            )
+            if (!tasca.edicio) {
+                DataBaseUtils.loadNewUserTask(
+                    true,
+                    tascaTemps,
+                    tascaNom,
+                    tascaDescripcio,
+                    tascaCategoria,
+                    indexTascaCategoria
+                )
+            }
+            else {
+                //EDICIÓ
+            }
         }
     }
 

@@ -47,10 +47,6 @@ class DataBaseUtils {
 
 
             } else if (Personalitzada) {
-
-
-
-
                     //SET
 
                     val hashMapDatos = hashMapOf(
@@ -58,13 +54,9 @@ class DataBaseUtils {
                         "descripcio" to descripcio,
                         "data" to data,
                         "categoria" to indexCategoria
-
                     )
-
                     db.collection("Users").document(user!!.uid).collection("Tasques")
                         .document(nom).set(hashMapDatos)
-
-
                 }
             }
 
