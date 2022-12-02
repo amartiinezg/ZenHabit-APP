@@ -51,6 +51,7 @@ class EditTask_Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         bin = FragmentEditTaskBinding.inflate(layoutInflater)
         var initializeUserDataList : List<UsersClass>
         val coloredSpinner: Spinner = bin.slctorCategoryTask
@@ -71,6 +72,7 @@ class EditTask_Fragment : Fragment() {
         val tasca = args.tasca
 
         bin.taskIdLabelEditTask.setText(tasca.tascaNom)
+        var oldTaskName = tasca.tascaNom
         var categoria = tasca.tascaCategoria
         if (!tasca.tascaDescripcio.isNullOrBlank()) {
             bin.editTextDescriptionName.setText(tasca.tascaDescripcio)
@@ -107,6 +109,7 @@ class EditTask_Fragment : Fragment() {
             var tascaTemps = bin.lblTimerTask.text.toString()
 
 
+
             Log.d("EditTask_Fragment", tascaCategoria.toString())
 
             if (!tasca.edicio) {
@@ -121,6 +124,9 @@ class EditTask_Fragment : Fragment() {
             }
             else {
                 //EDICIÓ
+                if (oldTaskName != null) {
+                    DataBaseUtils.updateUserInfo(oldTaskName, tascaNom, tascaDescripcio,tascaTemps, tascaCategoria)
+                }
             }
         }
     }

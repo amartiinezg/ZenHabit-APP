@@ -76,8 +76,27 @@ class DataBaseUtils {
             return documentReference
         }
 
-        fun getAllUserData(){
+        fun updateUserInfo( oldName : String, newName : String, descripcio: String, data : String, categoria: String){
+            var deleteRef = db.collection("Users").document(user!!.uid).collection("Tasques").document(oldName)
+           var hashMap = hashMapOf(
+               "Nombre" to newName,
+               "Descripción" to descripcio,
+               "Data" to data,
+               "Categoria" to categoria
 
+           )
+            //Delete old data.
+            deleteOldInfo(deleteRef);
+            //Set new data.
+            db.collection("Users").document(user!!.uid).collection("Tasques").document(newName).set(hashMap)
+
+
+
+
+        }
+
+        private fun deleteOldInfo(deleteRef : DocumentReference ) {
+            deleteRef.delete()
         }
 
     }
