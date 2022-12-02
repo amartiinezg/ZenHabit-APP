@@ -79,10 +79,10 @@ class DataBaseUtils {
         fun updateUserInfo( oldName : String, newName : String, descripcio: String, data : String, categoria: String){
             var deleteRef = db.collection("Users").document(user!!.uid).collection("Tasques").document(oldName)
            var hashMap = hashMapOf(
-               "Nombre" to newName,
-               "Descripción" to descripcio,
-               "Data" to data,
-               "Categoria" to categoria
+               "nom" to newName,
+               "descripcio" to descripcio,
+               "data" to data,
+               "categoria" to categoria
 
            )
             //Delete old data.
