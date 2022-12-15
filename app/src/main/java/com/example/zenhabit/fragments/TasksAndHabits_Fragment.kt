@@ -59,9 +59,17 @@ class TasksAndHabits_Fragment : Fragment() {
 
         docRef.addOnSuccessListener { result ->
             for (document in result) {
-                var tasca = TaskCard(document.data.get("nom").toString(), document.data.get("descripcio").toString(), document.data.get("categoria").toString(),document.data.get("data").toString(), false)
-                tasques.add(tasca)
-                Log.d("Proves", "${document.id} => ${document.data}")
+                if(!document.data.get("nom").toString().equals("null")) {
+                    var tasca = TaskCard(
+                        document.data.get("nom").toString(),
+                        document.data.get("descripcio").toString(),
+                        document.data.get("categoria").toString(),
+                        document.data.get("data").toString(),
+                        false
+                    )
+                    tasques.add(tasca)
+                    Log.d("Proves", "${document.id} => ${document.data}")
+                }
             }
             val challenges = arrayOf(
                 ChallengeCard(
@@ -86,28 +94,6 @@ class TasksAndHabits_Fragment : Fragment() {
             binding.reclyclerViewTasques.layoutManager = LinearLayoutManager(activity)
             binding.reclyclerViewTasques.adapter = Adapter_TaskCard(this, tasques)
         }
-
-        /*
-        val tasks = arrayOf(
-            TaskCard(
-                "Menjar Avena",
-                "",
-                "Salut",
-                "10:00"
-            ),
-            TaskCard(
-                "Planxar la roba",
-                "",
-                "Productivitat",
-                "13:30",
-            ),
-            TaskCard(
-                "Fer esport 1 hora",
-                "Anar al gimnàs, anar a correr, etc...",
-                "Salut",
-                "17:00"
-            )
-        )*/
     }
 
 

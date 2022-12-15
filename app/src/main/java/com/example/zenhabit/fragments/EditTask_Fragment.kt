@@ -123,7 +123,7 @@ class EditTask_Fragment : Fragment() {
                 )
             }
             else {
-                //EDICIÓ
+                //EDICIO
                 if (oldTaskName != null) {
                     DataBaseUtils.updateUserInfo(oldTaskName, tascaNom, tascaDescripcio,tascaTemps, tascaCategoria)
                 }
