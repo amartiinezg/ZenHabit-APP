@@ -6,9 +6,7 @@
     android:id="@+id/card_jardi"
     android:layout_margin="12dp"
     app:cardBackgroundColor="@color/green"
-    app:cardCornerRadius="90dp"
-    app:cardElevation="4dp"
-    app:contentPadding="4dp"
+    app:cardCornerRadius="30dp"
     >
 
     <LinearLayout

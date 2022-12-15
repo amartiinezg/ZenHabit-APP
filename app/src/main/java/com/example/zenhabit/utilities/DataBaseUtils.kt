@@ -1,50 +1,106 @@
 package com.example.zenhabit.utilities
 
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import android.annotation.SuppressLint
+import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
+import kotlinx.coroutines.runBlocking
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 
 class DataBaseUtils {
 
 
-
     companion object {
-        val db = Firebase.firestore
-       fun createJardi()
-        {
-            val pino = hashMapOf(
-                "Name" to "Abeto",
-                "Icon" to "",
-                "Type" to "Arbol"
-            )
+        @SuppressLint("StaticFieldLeak")
+        val db = FirebaseFirestore.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser
+        var userData: UsersClass? = null
 
-            val cerezo = hashMapOf(
-                "Name" to "Cerezo",
-                "Icon" to "",
-                "Type" to "Arbol"
-            )
+        fun loadNewUserTask(
+            Personalitzada: Boolean,
+            data: String,
+            nom: String,
+            descripcio: String,
+            categoria: String,
+            indexCategoria: Int
+        ) {
 
 
-            //Sets de base de datos.
-            db.collection("Jardi").document("Pino").set(pino)
-            db.collection("Jardi").document("Cerezo").set(cerezo)
+            //MIRAR SI ES UNA TASCA O UN "CHALLENGE"
+            if (!Personalitzada) {
+                val docRef = checkTaskProfile(categoria)
+                docRef?.get()?.addOnSuccessListener { documentSnapshot ->
+                    userData = documentSnapshot.toObject<UsersClass>()
 
+                    //SET
+                    if (userData != null) {
+                        userData!!.data = data
+                        val documentPath = db.collection("Users").document(user!!.uid)
+                            .collection("Challenges").document(/*Introducir nombre de challenge*/)
+
+                        documentPath?.collection(categoria)?.document(categoria)?.set(userData!!)
+
+
+                    }
+                }
+
+
+            } else if (Personalitzada) {
+                //SET
+
+                val hashMapDatos = hashMapOf(
+                    "nom" to nom,
+                    "descripcio" to descripcio,
+                    "data" to data,
+                    "categoria" to indexCategoria
+                )
+                db.collection("Users").document(user!!.uid).collection("Tasques")
+                    .document(nom).set(hashMapDatos)
+            }
         }
 
-        fun createPerfils(){
 
-            val test1 = hashMapOf(
-                "test1" to "test1"
+        fun checkTaskProfile(taskID: String): DocumentReference? {
+            var documentReference: DocumentReference? = null
+            if (taskID.contains("TS")) {
+                documentReference = db.collection("/Perfils/Salut/Tasques").document(taskID)
+            } else if (taskID.contains("TP")) {
+                documentReference = db.collection("/Perfils/Productivitat/Tasques").document(taskID)
+            } else if (taskID.contains("TA")) {
+                documentReference = db.collection("/Perfils/Aprenentatge/Tasques").document(taskID)
+            }
+            return documentReference
+        }
+
+        fun updateUserInfo(
+            oldName: String,
+            newName: String,
+            descripcio: String,
+            data: String,
+            categoria: String
+        ) {
+            var deleteRef =
+                db.collection("Users").document(user!!.uid).collection("Tasques").document(oldName)
+            var hashMap = hashMapOf(
+                "nom" to newName,
+                "descripcio" to descripcio,
+                "data" to data,
+                "categoria" to categoria
 
             )
-            //Sets de base de datos.
-            db.collection("Perfils").document("Salut").set(test1)
-            db.collection("Perfils").document("Aprenentatge").set(test1)
-            db.collection("Perfils").document("Productivitat").set(test1)
-
+            //Delete old data.
+            deleteOldInfo(deleteRef);
+            //Set new data.
+            db.collection("Users").document(user!!.uid).collection("Tasques").document(newName)
+                .set(hashMap)
         }
 
-        fun createTasques(){
-
+        private fun deleteOldInfo(deleteRef: DocumentReference) {
+            deleteRef.delete()
         }
+
     }
+
+
 }

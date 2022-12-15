@@ -1,6 +1,7 @@
 package com.example.zenhabit.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zenhabit.adapters.Adapter_ChallengeCard
 import com.example.zenhabit.adapters.Adapter_TaskCard
 import com.example.zenhabit.classes.ChallengeCard
+import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
 import com.example.zenhabit.classes.TaskCard
 import com.example.zenhabit.databinding.FragmentTasksAndHabitsBinding
+import com.example.zenhabit.utilities.DataBaseUtils
+import com.google.firebase.firestore.QueryDocumentSnapshot
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,9 +42,11 @@ class TasksAndHabits_Fragment : Fragment() {
        binding = FragmentTasksAndHabitsBinding.inflate(layoutInflater)
 
         binding.floatButtonAddTask.setOnClickListener{
-            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment(TaskCard("Escriu el nom...", "", "", ""))
+            val sendData = TasksAndHabits_FragmentDirections.actionTasksAndHabitsFragmentToEditTaskFragment(TaskCard("", "", "", "", false))
             NavHostFragment.findNavController(this).navigate(sendData)
         }
+
+
 
         binding.reclyclerViewTasques
        return binding.root
@@ -48,48 +54,46 @@ class TasksAndHabits_Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val challenges = arrayOf(
-            ChallengeCard(
-                "Anar a correr 5km",
-                "",
-                true
-            ),
-            ChallengeCard(
-                "Màxim 2 hores al mòvil",
-                "",
-                false
-            ),
-            ChallengeCard(
-                "Fer 2 tasques",
-                "",
-                true
-            )
-        )
-        val tasks = arrayOf(
-            TaskCard(
-                "Menjar Avena",
-                "",
-                "Salut",
-                "10:00"
-            ),
-            TaskCard(
-                "Planxar la roba",
-                "",
-                "Productivitat",
-                "13:30",
-            ),
-            TaskCard(
-                "Fer esport 1 hora",
-                "Anar al gimnàs, anar a correr, etc...",
-                "Salut",
-                "17:00"
-            )
-        )
-        binding.reclyclerViewChallenges.layoutManager = LinearLayoutManager(activity)
-        binding.reclyclerViewChallenges.adapter = Adapter_ChallengeCard(this, challenges)
+        var docRef = DataBaseUtils.db.collection("Users").document(DataBaseUtils.user!!.uid).collection("Tasques").get()
+        val tasques = ArrayList<TaskCard>()
 
-        binding.reclyclerViewTasques.layoutManager = LinearLayoutManager(activity)
-        binding.reclyclerViewTasques.adapter = Adapter_TaskCard(this, tasks)
+        docRef.addOnSuccessListener { result ->
+            for (document in result) {
+                if(!document.data.get("nom").toString().equals("null")) {
+                    var tasca = TaskCard(
+                        document.data.get("nom").toString(),
+                        document.data.get("descripcio").toString(),
+                        document.data.get("categoria").toString(),
+                        document.data.get("data").toString(),
+                        false
+                    )
+                    tasques.add(tasca)
+                    Log.d("Proves", "${document.id} => ${document.data}")
+                }
+            }
+            val challenges = arrayOf(
+                ChallengeCard(
+                    "Anar a correr 5km",
+                    "",
+                    true
+                ),
+                ChallengeCard(
+                    "Màxim 2 hores al mòvil",
+                    "",
+                    false
+                ),
+                ChallengeCard(
+                    "Fer 2 tasques",
+                    "",
+                    true
+                )
+            )
+            binding.reclyclerViewChallenges.layoutManager = LinearLayoutManager(activity)
+            binding.reclyclerViewChallenges.adapter = Adapter_ChallengeCard(this, challenges)
+
+            binding.reclyclerViewTasques.layoutManager = LinearLayoutManager(activity)
+            binding.reclyclerViewTasques.adapter = Adapter_TaskCard(this, tasques)
+        }
     }
 
 

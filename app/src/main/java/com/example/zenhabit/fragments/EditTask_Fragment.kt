@@ -2,17 +2,23 @@ package com.example.zenhabit.fragments
 
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import com.example.zenhabit.R
+import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
 import com.example.zenhabit.databinding.FragmentEditTaskBinding
+import com.example.zenhabit.utilities.DataBaseUtils
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.time.Duration.Companion.seconds
 
@@ -45,25 +51,30 @@ class EditTask_Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        bin = FragmentEditTaskBinding.inflate(layoutInflater)
 
-        val coloredSpinner :Spinner = bin.slctorCategoryTask
-        var adapter :ArrayAdapter<*> = ArrayAdapter.createFromResource(activity!!,
+        bin = FragmentEditTaskBinding.inflate(layoutInflater)
+        var initializeUserDataList : List<UsersClass>
+        val coloredSpinner: Spinner = bin.slctorCategoryTask
+        var adapter: ArrayAdapter<*> = ArrayAdapter.createFromResource(
+            activity!!,
             R.array.categoria,
-            R.layout.spinner_custom_layout)
+            R.layout.spinner_custom_layout
+        )
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout)
-        coloredSpinner.adapter  = adapter
+        coloredSpinner.adapter = adapter
 
         return bin.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val tasca = args.tasca
 
         bin.taskIdLabelEditTask.setText(tasca.tascaNom)
+        var oldTaskName = tasca.tascaNom
         var categoria = tasca.tascaCategoria
-        if(!tasca.tascaDescripcio.isNullOrBlank()){
+        if (!tasca.tascaDescripcio.isNullOrBlank()) {
             bin.editTextDescriptionName.setText(tasca.tascaDescripcio)
         }
 
@@ -79,15 +90,44 @@ class EditTask_Fragment : Fragment() {
         val listenerHora = TimePickerDialog.OnTimeSetListener { view, hora, minutos ->
             bin.lblTimerTask.setText("$hora:${minutos}")
         }
-        bin.iconDate.setOnClickListener{
-            TimePickerDialog(activity!!, listenerHora, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+        bin.iconDate.setOnClickListener {
+            TimePickerDialog(
+                activity!!,
+                listenerHora,
+                cal.get(Calendar.HOUR_OF_DAY),
+                cal.get(Calendar.MINUTE),
+                true
+            ).show()
         }
 
-        bin.btnSaveEditTask.setOnClickListener{
-            tasca.tascaNom = bin.taskIdLabelEditTask.text.toString()
-            tasca.tascaDescripcio = bin.editTextDescriptionName.text.toString()
-            tasca.tascaCategoria = bin.slctorCategoryTask.selectedItemPosition.toString()
-            tasca.tascaTemps = bin.lblTimerTask.text.toString()
+        bin.btnSaveEditTask.setOnClickListener {
+
+            var tascaNom = bin.taskIdLabelEditTask.text.toString()
+            var tascaDescripcio = bin.editTextDescriptionName.text.toString()
+            var tascaCategoria = getResources().getStringArray(R.array.categoria)[bin.slctorCategoryTask.selectedItemPosition].toString();
+            var indexTascaCategoria =bin.slctorCategoryTask.selectedItemPosition
+            var tascaTemps = bin.lblTimerTask.text.toString()
+
+
+
+            Log.d("EditTask_Fragment", tascaCategoria.toString())
+
+            if (!tasca.edicio) {
+                DataBaseUtils.loadNewUserTask(
+                    true,
+                    tascaTemps,
+                    tascaNom,
+                    tascaDescripcio,
+                    tascaCategoria,
+                    indexTascaCategoria
+                )
+            }
+            else {
+                //EDICIO
+                if (oldTaskName != null) {
+                    DataBaseUtils.updateUserInfo(oldTaskName, tascaNom, tascaDescripcio,tascaTemps, tascaCategoria)
+                }
+            }
         }
     }
 

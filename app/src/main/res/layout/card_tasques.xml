@@ -32,8 +32,8 @@
             android:textSize="16sp" />
 
         <Space
-            android:layout_width="61dp"
-            android:layout_height="13dp"
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
             android:layout_weight="0" />
 
         <TextView
@@ -56,6 +56,20 @@
             android:layout_height="48dp"
             android:contentDescription="@string/boto_per_editar_tasca"
             app:icon="@android:drawable/ic_menu_edit"
+            app:iconGravity="textEnd"
+            app:iconPadding="0sp"
+            android:layout_marginRight="10dp"
+            app:iconSize="20sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_RemoveTask"
+            android:layout_width="48dp"
+
+            android:backgroundTint="@color/red"
+            android:layout_height="48dp"
+            android:layout_weight="0"
+            android:contentDescription="@string/boto_per_editar_tasca"
+            app:icon="@android:drawable/ic_menu_delete"
             app:iconGravity="textEnd"
             app:iconPadding="0sp"
             app:iconSize="20sp" />

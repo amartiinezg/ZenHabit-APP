@@ -103,14 +103,9 @@ class RegistreActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
 
-                    //Crear documentos de base de datos en firestore.
 
-                    val Users = hashMapOf(
-                        "test" to "test",
-                        "born" to 1815
-                    )
 
-                    db.collection("Users").document(user!!.uid).set(Users)
+
 
 
 
