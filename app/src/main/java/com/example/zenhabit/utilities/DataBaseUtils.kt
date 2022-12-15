@@ -2,6 +2,7 @@ package com.example.zenhabit.utilities
 
 import android.annotation.SuppressLint
 import com.example.zenhabit.classes.DataBase.usersclass.UsersClass
+import kotlinx.coroutines.runBlocking
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -16,14 +17,13 @@ class DataBaseUtils {
         val user = FirebaseAuth.getInstance().currentUser
         var userData: UsersClass? = null
 
-
         fun loadNewUserTask(
             Personalitzada: Boolean,
             data: String,
             nom: String,
             descripcio: String,
             categoria: String,
-            indexCategoria : Int
+            indexCategoria: Int
         ) {
 
 
@@ -47,21 +47,18 @@ class DataBaseUtils {
 
 
             } else if (Personalitzada) {
-                    //SET
+                //SET
 
-                    val hashMapDatos = hashMapOf(
-                        "nom" to nom,
-                        "descripcio" to descripcio,
-                        "data" to data,
-                        "categoria" to indexCategoria
-                    )
-                    db.collection("Users").document(user!!.uid).collection("Tasques")
-                        .document(nom).set(hashMapDatos)
-                }
+                val hashMapDatos = hashMapOf(
+                    "nom" to nom,
+                    "descripcio" to descripcio,
+                    "data" to data,
+                    "categoria" to indexCategoria
+                )
+                db.collection("Users").document(user!!.uid).collection("Tasques")
+                    .document(nom).set(hashMapDatos)
             }
-
-
-
+        }
 
 
         fun checkTaskProfile(taskID: String): DocumentReference? {
@@ -76,26 +73,30 @@ class DataBaseUtils {
             return documentReference
         }
 
-        fun updateUserInfo( oldName : String, newName : String, descripcio: String, data : String, categoria: String){
-            var deleteRef = db.collection("Users").document(user!!.uid).collection("Tasques").document(oldName)
-           var hashMap = hashMapOf(
-               "nom" to newName,
-               "descripcio" to descripcio,
-               "data" to data,
-               "categoria" to categoria
+        fun updateUserInfo(
+            oldName: String,
+            newName: String,
+            descripcio: String,
+            data: String,
+            categoria: String
+        ) {
+            var deleteRef =
+                db.collection("Users").document(user!!.uid).collection("Tasques").document(oldName)
+            var hashMap = hashMapOf(
+                "nom" to newName,
+                "descripcio" to descripcio,
+                "data" to data,
+                "categoria" to categoria
 
-           )
+            )
             //Delete old data.
             deleteOldInfo(deleteRef);
             //Set new data.
-            db.collection("Users").document(user!!.uid).collection("Tasques").document(newName).set(hashMap)
-
-
-
-
+            db.collection("Users").document(user!!.uid).collection("Tasques").document(newName)
+                .set(hashMap)
         }
 
-        private fun deleteOldInfo(deleteRef : DocumentReference ) {
+        private fun deleteOldInfo(deleteRef: DocumentReference) {
             deleteRef.delete()
         }
 

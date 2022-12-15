@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.zenhabit.R
 import com.example.zenhabit.classes.JardiCard
 
-class Adapter_JardiCard(private val dataSet: Array<JardiCard>) :
+class Adapter_JardiCard(private val dataSet: ArrayList<JardiCard>) :
     RecyclerView.Adapter<Adapter_JardiCard.JardiViewHolder>() {
 
     // Create new views (invoked by the layout manager)
