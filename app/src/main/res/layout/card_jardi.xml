@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shimmer_container"
+    android:layout_width="match_parent"
+    app:shimmer_auto_start="true"
+    android:layout_height="wrap_content">
+
+<androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,6 +25,15 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
+        <ProgressBar
+            android:id="@+id/carregaJardi"
+            style="?android:attr/progressBarStyle"
+            android:indeterminateTint="@color/green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            />
         <ImageView
             android:id="@+id/img_cardJardi"
             android:layout_width="45dp"
@@ -62,3 +78,4 @@
 
 
 </androidx.cardview.widget.CardView>
+</com.facebook.shimmer.ShimmerFrameLayout>

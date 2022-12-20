@@ -38,7 +38,7 @@ class acitivity_menuNavigation : AppCompatActivity() {
             binding.dailyMenu.setEnabled(true)
             binding.dailyMenu.background.setTint(resources.getColor(R.color.transparent))
 
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, Home()).commit()
+            supportFragmentManager.beginTransaction().add(R.id.fragment_container, Home()).addToBackStack(null).commit()
 
 
             binding.homeMenu.setEnabled(true)
