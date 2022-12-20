@@ -5,13 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.zenhabit.R
 import com.example.zenhabit.adapters.Adapter_JardiCard
 import com.example.zenhabit.classes.JardiCard
-import com.example.zenhabit.classes.TaskCard
 import com.example.zenhabit.databinding.FragmentJardiBinding
 import com.example.zenhabit.utilities.DataBaseUtils
 
@@ -31,7 +28,6 @@ class jardi : Fragment() {
     private var param2: String? = null
 
     private lateinit var binding: FragmentJardiBinding
-    private var Imatges = arrayOf(0, R.drawable.tree_1, R.drawable.pine_tree)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,12 +41,14 @@ class jardi : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //var jardi: HashMap<String, HashMap<String, Int>> = DataBaseUtils.checkJardi()
-
-        var documentRef = DataBaseUtils.db.collection("Users").document(DataBaseUtils.user!!.uid).collection("Jardi")
+        var documentRef = DataBaseUtils.db.collection("Users").document(DataBaseUtils.user!!.uid)
+            .collection("Jardi")
         var documentJardi = DataBaseUtils.db.collection("Jardi").get()
         var jardiExists = documentRef.get()
         var hashJardi: HashMap<String, HashMap<String, Int>> = HashMap()
+        binding.jardiRecyclerView.layoutManager = LinearLayoutManager(activity)
+        binding.jardiRecyclerView.adapter = Adapter_JardiCard(null)
+
         documentJardi.addOnSuccessListener { jardi ->
             for (recompensa in jardi) {
                 var dadesHash: HashMap<String, Int> = HashMap()
@@ -59,22 +57,37 @@ class jardi : Fragment() {
                 hashJardi.put(recompensa.data.get("Name").toString(), dadesHash)
             }
             jardiExists.addOnSuccessListener { result ->
+                var data: ArrayList<JardiCard> = ArrayList<JardiCard>();
                 if (result.size() == 0) {
-                    documentRef.document("Recompenses").set(hashJardi)
-                } else {
-
+                    for (recompensa in hashJardi) {
+                        documentRef.document(recompensa.key).set(recompensa.value)
+                        data.add(
+                            JardiCard(
+                                recompensa.value["ID"].toString().toInt(),
+                                recompensa.key,
+                                recompensa.value["Quantitat"].toString().toInt()
+                            )
+                        )
+                    }
                 }
-                var data :ArrayList<JardiCard> = ArrayList<JardiCard>();
-                for (recompensa in hashJardi){
-                    data.add(JardiCard(Imatges.get(1), recompensa.key.toString(), recompensa.value["Quantitat"].toString().toInt()))
+                else {
+                    for (recompensa in result) {
+                        data.add(
+                            JardiCard(
+                                recompensa.data.get("ID").toString().toInt(),
+                                recompensa.id,
+                                recompensa.data.get("Quantitat").toString().toInt()
+                            )
+                        )
+                    }
                 }
-
+                var documentRef = DataBaseUtils.db.collection("Users").document(DataBaseUtils.user!!.uid)
+                    .collection("Jardi").document()
                 binding.jardiRecyclerView.layoutManager = LinearLayoutManager(activity)
                 binding.jardiRecyclerView.adapter = Adapter_JardiCard(data)
+                }
             }
         }
-
-    }
 
     companion object {
         /**
