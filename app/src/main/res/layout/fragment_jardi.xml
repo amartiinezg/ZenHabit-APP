@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="15dp"
-                android:text="@string/_20_min"
+                android:text="20 min"
                 android:textColor="@color/white" />
 
             <LinearLayout
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="15dp"
-                android:text="@string/_30_min"
+                android:text="30 min"
                 android:textColor="@color/white" />
 
             <LinearLayout

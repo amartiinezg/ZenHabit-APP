@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/nom_arbre_planta"
+                android:text="Nom_Arbre_Planta"
                 android:textColor="@color/red"
                 android:textStyle="bold" />
 
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/has_obtingut_x"
+                android:text="Has obtingut x"
                 android:textColor="@color/red" />
         </LinearLayout>
 

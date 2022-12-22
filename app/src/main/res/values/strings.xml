@@ -76,31 +76,6 @@
     <string name="canviar_contrasenya">Canviar contrasenya</string>
     <string name="canviar_email">Canviar email</string>
     <string name="spinner_titulo">Elige la categoria</string>
-    <string name="repetir_contrasenya">Repetir Contrasenya</string>
-    <string name="nova_contrasenya">Nova contrasenya</string>
-    <string name="hola">Hola!</string>
-    <string name="restableix_la_teva_contrasenya">Restableix la teva contrasenya</string>
-    <string name="cancel_la">CANCEL·LA</string>
-    <string name="acceptar">Acceptar</string>
-    <string name="email">Email</string>
-    <string name="hola2">Hola!</string>
-    <string name="restableix_la_teva_contrasenya2">Restableix la teva contrasenya</string>
-    <string name="cancel_la2">CANCEL·LA</string>
-    <string name="enviar">Enviar</string>
-    <string name="introdueix_el_teu_correu_electr_nic_i_t_enviarem_un_enlla_per_restablir_la_teva_contrasenya">Introdueix el teu correu electrònic i t\'enviarem un enllaç per restablir la teva contrasenya</string>
-    <string name="contrasenya2">Contrasenya</string>
-    <string name="email3">Email</string>
-    <string name="nom_d_usuari3">Nom d\'usuari</string>
-    <string name="hola4">Hola!</string>
-    <string name="completa_el_teu_perfil">Completa el teu perfil</string>
-    <string name="cancel_la4">CANCEL·LA</string>
-    <string name="registre_t2">Registre\'t</string>
-    <string name="nom_arbre_planta">Nom_Arbre_Planta</string>
-    <string name="has_obtingut_x">Has obtingut x</string>
-    <string name="_20_min">20 min</string>
-    <string name="_30_min">30 min</string>
-    <string name="categoria">(CATEGORIA)</string>
-    <string name="categoria2">(CATEGORIA)</string>
     <string-array name="categoria">
         <item>Aprenentatge</item>
         <item>Productivitat</item>
