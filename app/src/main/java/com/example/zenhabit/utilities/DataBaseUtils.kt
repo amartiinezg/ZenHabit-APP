@@ -17,6 +17,15 @@ class DataBaseUtils {
         val user = FirebaseAuth.getInstance().currentUser
         var userData: UsersClass? = null
 
+        /**
+        * Funció per carregar una tasca nova per a un usuari.
+        * @param Personalitzada Booleà que indica si la tasca és personalitzada o no.
+        * @param data Data de la tasca.
+        * @param nom Nom de la tasca.
+        * @param descripcio Descripció de la tasca.
+        * @param categoria Categoria de la tasca.
+        * @param indexCategoria Índex de la categoria.
+         */
         fun loadNewUserTask(
             Personalitzada: Boolean,
             data: String,
@@ -60,7 +69,12 @@ class DataBaseUtils {
             }
         }
 
+        /**
 
+        * Funció per verificar la tasca en un perfil específic.
+         * @param taskID ID de la tasca a verificar.
+         * @return DocumentReference de la tasca al perfil específic, o null si no es troba en cap perfil.
+         */
         fun checkTaskProfile(taskID: String): DocumentReference? {
             var documentReference: DocumentReference? = null
             if (taskID.contains("TS")) {
@@ -73,6 +87,14 @@ class DataBaseUtils {
             return documentReference
         }
 
+        /**
+        * Funció per actualitzar la informació duna tasca d'un usuari.
+        * @param oldName Nom antic de la tasca.
+        * @param newName Nom nou de la tasca.
+        * @param descripcio Descripció de la tasca.
+        * @param data Data de la tasca.
+        * @param categoria Categoria de la tasca.
+         */
         fun updateUserInfo(
             oldName: String,
             newName: String,
@@ -96,6 +118,10 @@ class DataBaseUtils {
                 .set(hashMap)
         }
 
+        /**
+         * Funció per esborrar el registre seleccionat
+         * @param deleteRef Referencia al document a eliminar.
+         */
         private fun deleteOldInfo(deleteRef: DocumentReference) {
             deleteRef.delete()
         }
