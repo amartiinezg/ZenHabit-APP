@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/lbl_Jardi"
-            android:layout_width="111dp"
+            android:layout_width="187dp"
             android:layout_height="51dp"
             android:layout_marginTop="16dp"
             android:text="@string/jardi"
@@ -24,7 +24,7 @@
             android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.173"
+            app:layout_constraintHorizontal_bias="0.236"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

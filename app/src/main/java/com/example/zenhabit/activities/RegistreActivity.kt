@@ -92,6 +92,15 @@ class RegistreActivity : AppCompatActivity() {
 
     }
 
+    /**
+
+    * Funció privada per crear un usuari nou a l'aplicació.
+    * @param username Correu electrònic de l'usuari.
+    * @param password Contrasenya de l'usuari.
+    * @param tvsnackbar TextView on es mostrarà un Snackbar en cas d'error.
+    * @param emailLayout TextInputLayout per al camp de correu electrònic.
+    * @param passwordLayout TextInputLayout per al camp de contrasenya.
+     */
     private fun crearUsuari(username: String, password: String, tvsnackbar : TextView, emailLayout: TextInputLayout, passwordLayout: TextInputLayout) {
 
         auth.createUserWithEmailAndPassword(username, password)
@@ -135,6 +144,13 @@ class RegistreActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Funció per manejar errors de Firebase.
+     * @param firebaseError Missatge d'error tornat per Firebase.
+     * @param layoutUsername TextInputLayout per al camp de correu electrònic.
+     * @param layoutPassword TextInputLayout per al camp de contrasenya.
+     * @param tvsnackbar TextView on es mostrarà un Snackbar amb el missatge d'error.
+     */
     private fun handleErrorsUtility(firebaseError : String, emailLayout : TextInputLayout, layoutPassword: TextInputLayout, tvsnackbar: TextView){
 
         if (firebaseError.contains("The password is invalid")){

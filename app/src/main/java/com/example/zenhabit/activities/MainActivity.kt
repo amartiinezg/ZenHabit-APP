@@ -103,7 +103,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //Functions
+    /**
+
+    * Funció privada per iniciar sessió a l'aplicació.
+    * @param email Correu electrònic de l'usuari.
+    * @param password Contrasenya de l'usuari.
+    * @param tvsnackbar TextView on es mostrarà un Snackbar en cas d'error.
+    * @param layoutUsername TextInputLayout per al camp de correu electrònic.
+    * @param layoutPassword TextInputLayout per al camp de contrasenya.
+     */
     private fun login(email: String, password: String, tvsnackbar:TextView, layoutUsername : TextInputLayout, layoutPassword : TextInputLayout){
 
         auth.signInWithEmailAndPassword(email, password)
@@ -135,8 +143,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
+    /**
+     * Funció per manejar errors de Firebase.
+     * @param firebaseError Missatge d'error tornat per Firebase.
+     * @param layoutUsername TextInputLayout per al camp de correu electrònic.
+     * @param layoutPassword TextInputLayout per al camp de contrasenya.
+     * @param tvsnackbar TextView on es mostrarà un Snackbar amb el missatge d'error.
+     */
     private fun handleErrorsUtility(firebaseError : String, layoutUsername : TextInputLayout, layoutPassword: TextInputLayout, tvsnackbar: TextView){
 
         if (firebaseError.contains("The password is invalid")){
