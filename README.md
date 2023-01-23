@@ -1,4 +1,4 @@
-![image](https://drive.google.com/file/d/1icK1xsDVZcYpLIiXF3v5koOQVENp0MR2/view)
+![image](https://i.postimg.cc/8zNxvfmF/logo-transparent.png)
 # ZenHabit
 
 ## Autor
