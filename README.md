@@ -14,4 +14,4 @@ ZenHabit ajuda a gestionar el temps de forma eficient per assolir objectius pers
 ZenHabit contribueix a millorar la salut física, mental i, en alguns casos, fins i tot la financera. Inclou un quadern per fer autoreflexió i també permet realitzar un seguiment diari de l’estat anímic al llarg de tot el procés. Reforça l’actitud i la productivitat de les persones amb senzills reptes adaptats al tipus d’objectiu a assolir. A més, per no fer d'això una monotonia, s'inclouen minireptes diaris aleatoris per seguir motivant a l’usuari d’una forma amena i creativa.
 
 ## Play Store
-![image](https://user-images.githubusercontent.com/99869396/214144256-1ef580ab-e151-4a02-a507-dcf77878316e.png)
+![image](https://user-images.githubusercontent.com/99869396/214144290-74f9ddba-ae37-4573-9c7c-9370dbecb802.png)
