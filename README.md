@@ -1,4 +1,4 @@
-![image](https://i.postimg.cc/8zNxvfmF/logo-transparent.png](https://i.postimg.cc/4xW2hL3M/logo-light.png)
+![image](https://i.postimg.cc/4xW2hL3M/logo-light.png)
 
 ## Autor
 
