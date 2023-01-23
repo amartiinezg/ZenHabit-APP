@@ -1,15 +1,13 @@
-# Portafolio Web Developer
+# ZenHabit
 
 ## Autor
 
 | **Nombre y Apellidos** |         **Correo**         |               **GitHub**               |
 | :--------------------: | :------------------------: | :------------------------------------: |
-|  Ariel Plasencia Díaz  | arielplasencia00@gmail.com | [@ArielXL](https://github.com/ArielXL) |
+|  Àngel Martínez González  | amartiinezg@gmail.com | [@amartiinezg](https://github.com/amartiinezg) |
 
-## Desarrollador Web Front-End
+## Idea del projecte
 
-En los equipos de desarrollo, el rol del Front End Developer es uno de los pilares al momento de construir un sitio o aplicación web. Este programador es el encargado de nada menos que la interfaz gráfica de un proyecto digital, es decir la cara visible de un sitio o aplicación. Además, los desarrolladores Front End son perfiles altamente creativos, y se encargan de brindar una excelente experiencia de navegación al usuario dentro de un entorno web.
+ZenHabit ajuda a gestionar el temps de forma eficient per assolir objectius personals, permetent a l’usuari planificar un horari on aconseguir els seus reptes i alhora visualitzar recompenses simbòliques que el motiven a seguir endavant. 
 
-## Link
-
-Puedes acceder a él y verlo en la web haciendo click [aquí](https://ArielXL.github.io/portafolio-web-developer).
+ZenHabit contribueix a millorar la salut física, mental i, en alguns casos, fins i tot la financera. Inclou un quadern per fer autoreflexió i també permet realitzar un seguiment diari de l’estat anímic al llarg de tot el procés. Reforça l’actitud i la productivitat de les persones amb senzills reptes adaptats al tipus d’objectiu a assolir. A més, per no fer d'això una monotonia, s'inclouen minireptes diaris aleatoris per seguir motivant a l’usuari d’una forma amena i creativa.
