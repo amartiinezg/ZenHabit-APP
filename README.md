@@ -5,7 +5,7 @@
 | **Nombre y Apellidos** |         **Correo**         |               **GitHub**               |
 | :--------------------: | :------------------------: | :------------------------------------: |
 |  Àngel Martínez González  | amartiinezg@gmail.com | [@amartiinezg](https://github.com/amartiinezg) |
-|  Adam Sánchez Portero  | adamsacnhezdev@gmail.com | [@adamsanchezdev](https://github.com/adamsanchezdev) |
+|  Adam Sánchez Portero  | adamsacnhezdev@gmail.com | [@adamsanchez-dev](https://github.com/adamsanchez-dev) |
 
 ## Idea del projecte
 
